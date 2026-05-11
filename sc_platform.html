@@ -62,7 +62,7 @@
                     </div>
                 </article>
 
-                <article class="glass-panel animate-on-scroll" style="margin-top: var(--space-4);">
+                <article class="glass-panel animate-on-scroll">
                     <h2 class="glass-title">Key Achievements</h2>
                     <div id="key-achievements">
                         <!-- Populated via JS -->
@@ -80,9 +80,9 @@
     </button>
 
     <script type="module">
-        import scPlatformData from '../data/sc-platform-data.json';
-        import { renderCaseStudy, renderProjectInfo, renderKeyAchievements } from './main.js';
-        import { renderFinalScores } from './FinalScoreCharts.jsx';
+        import scPlatformData from './data/sc-platform-data.json';
+        import { renderCaseStudy, renderProjectInfo, renderKeyAchievements } from './js/main.js';
+        import { renderFinalScores } from './js/FinalScoreCharts.jsx';
 
         document.addEventListener('DOMContentLoaded', () => {
             renderCaseStudy(scPlatformData);

@@ -390,8 +390,23 @@ function formatMetricLabel(key) {
 
 function initThemeToggle() {
     const btn = document.getElementById('theme-toggle');
-    const sunIcon = btn.querySelector('.sun-icon');
-    const moonIcon = btn.querySelector('.moon-icon');
+    const sunIcon = btn?.querySelector('.sun-icon');
+    const moonIcon = btn?.querySelector('.moon-icon');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.classList.remove('theme-light', 'theme-dark');
+        document.documentElement.classList.add(currentTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('theme-dark');
+    }
+
+    const updateIcons = (theme) => {
+        if (sunIcon && moonIcon) {
+            sunIcon.style.display = theme === 'theme-dark' ? 'block' : 'none';
+            moonIcon.style.display = theme === 'theme-dark' ? 'none' : 'block';
+        }
+    };
 
     const toggleTheme = () => {
         const isDark = document.documentElement.classList.contains('theme-dark') ||
@@ -400,22 +415,19 @@ function initThemeToggle() {
         if (isDark) {
             document.documentElement.classList.remove('theme-dark');
             document.documentElement.classList.add('theme-light');
-            sunIcon.style.display = 'none';
-            moonIcon.style.display = 'block';
+            localStorage.setItem('theme', 'theme-light');
         } else {
             document.documentElement.classList.remove('theme-light');
             document.documentElement.classList.add('theme-dark');
-            sunIcon.style.display = 'block';
-            moonIcon.style.display = 'none';
+            localStorage.setItem('theme', 'theme-dark');
         }
+        updateIcons(document.documentElement.classList.contains('theme-dark') ? 'theme-dark' : 'theme-light');
     };
 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
+    if (btn) {
+        btn.addEventListener('click', toggleTheme);
+        updateIcons(document.documentElement.classList.contains('theme-dark') ? 'theme-dark' : 'theme-light');
     }
-
-    btn.addEventListener('click', toggleTheme);
 }
 
 function initScrollAnimations() {
@@ -462,7 +474,7 @@ export function renderCaseStudy(data) {
 
     // Hero section
     html += `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content">
             <div class="case-study-hero">
                 <h1>${escapeHtml(data.hero.title)}</h1>
@@ -487,7 +499,9 @@ export function renderCaseStudy(data) {
 
     // Content sections
     data.sections.forEach(section => {
-        html += renderSection(section);
+        html += `<div class="bento-tile-wrapper" style="margin-bottom: var(--space-4);">
+            ${renderSection(section)}
+        </div>`;
     });
 
     container.innerHTML = html;
@@ -505,7 +519,7 @@ function renderDefaultSection(section) {
     const iconHtml = section.icon ? `<img src="${escapeHtml(section.icon)}" alt="Icon" style="width: 24px; height: 24px;">` : '';
 
     return `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content">
             ${iconHtml ? `<div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
                 ${iconHtml}
@@ -522,7 +536,7 @@ function renderWireframingSection(section) {
     const otherImages = section.images.filter(i => !i.gridPosition);
 
     return `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content">
             <h2 class="cs-section-title">${escapeHtml(section.title)}</h2>
             ${section.paragraphs.map(p => `<p class="cs-text">${p}</p>`).join('')}
@@ -540,7 +554,7 @@ function renderWireframingSection(section) {
 
 function renderDesignSystemSection(section) {
     return `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content">
             <h2 class="cs-section-title">${escapeHtml(section.title)}</h2>
             ${section.paragraphs.map(p => `<p class="cs-text">${p}</p>`).join('')}
@@ -571,7 +585,7 @@ function renderDesignSystemSection(section) {
 
 function renderResponsiveSection(section) {
     return `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content">
             <h2 class="cs-section-title">${escapeHtml(section.title)}</h2>
             ${section.paragraphs.map(p => `<p class="cs-text">${p}</p>`).join('')}
@@ -588,7 +602,7 @@ function renderResponsiveSection(section) {
 
 function renderFinalResultSection(section) {
     return `
-    <article class="bento-tile animate-on-scroll">
+    <article class="bento-tile animate-on-scroll" style="margin-bottom: var(--space-4);">
         <div class="tile-content" style="background: linear-gradient(135deg, var(--bg-tile) 0%, var(--bg-inset) 100%);">
             <h2 class="cs-section-title">${escapeHtml(section.title)}</h2>
             ${section.paragraphs.map(p => `<p class="cs-text">${p}</p>`).join('')}

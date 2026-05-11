@@ -294,7 +294,7 @@ body {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--space-3);
-    padding-left: 4px;
+    padding-left: 12px;
     letter-spacing: -0.01em;
 }
 
