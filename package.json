@@ -1,0 +1,31 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@visx/axis": "^3.12.0",
+    "@visx/grid": "^3.12.0",
+    "@visx/group": "^3.12.0",
+    "@visx/responsive": "^3.12.0",
+    "@visx/scale": "^3.12.0",
+    "@visx/shape": "^3.12.0",
+    "@visx/text": "^3.12.0",
+    "@visx/tooltip": "^3.12.0",
+    "@visx/visx": "^3.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.11"
+  }
+}

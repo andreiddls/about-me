@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:tolstykh.webflow.io)",
+      "WebFetch(domain:gelserkirchen.github.io)",
+      "Bash(python3 *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/index.html)",
+      "Bash(open *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/js/data.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/js/main.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/css/styles.css)",
+      "Bash(npm run *)",
+      "Bash(curl *)",
+      "mcp__ide__getDiagnostics",
+      "Bash(pkill -f \"vite\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Initial commit: Portfolio site setup *)"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "about": {
+    "name": "Andrei Tolstykh",
+    "subtitle": "Senior Product Designer",
+    "location": "Saarbrücken (Germany)",
+    "locationEmoji": "📍",
+    "text": "Hi, I'm Andrei, a Senior Product Designer with 6+ years of experience in FinTech and AI, currently based in Germany. I design complex B2B platforms and turn business requirements into scalable product experiences.",
+    "avatar": {
+      "src": "/avatar.png",
+      "initials": "AT"
+    },
+    "links": {
+      "linkedin": "https://linkedin.com/in/tolstykhaa",
+      "email": "mailto:tolstykhandrew@gmail.com",
+      "cvPdf": "https://onedrive.live.com/?cid=5cd8c3542857ecb5&id=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263b&resid=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263&ithint=file%2Cpdf&e=Q2fykI&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy81Y2Q4YzM1NDI4NTdlY2I1L0lRRFNqQmFBb091VlNMRDQ5bkRLYUNZN0Faa1hVSGwyc1g4WWxDbUJmU0xGN1FnP2U9UTJmeWtJ&v=validatepermission"
+    }
+  },
+  "stats": [
+    { "value": "20K+", "label": "MAU platforms scaled" },
+    { "value": 100, "suffix": "+", "label": "presentations", "sublabel": "for executives and customers", "animate": true }
+  ],
+  "experience": [
+    {
+      "company": "QuantPi",
+      "role": "Senior Product Designer",
+      "period": "2022 — Present",
+      "location": "Germany",
+      "description": "Lead UX for an enterprise AI platform, orchestrating evaluation workflows and data-heavy dashboards. Harmonize design with business, engineering, and regulatory demands.",
+      "highlights": [
+        "5+ Enterprise clients",
+        "10+ AI evaluation modules built",
+        "Full-cycle UX/UI across 3 core services"
+      ]
+    },
+    {
+      "company": "Sberbank",
+      "role": "Product Designer / Lead UI/UX",
+      "period": "2019 — 2022",
+      "location": "Russia",
+      "description": "Designed enterprise finance platforms, simplifying complex processes across 10+ internal services. Delivered responsive web and mobile solutions in agile, cross-functional teams.",
+      "highlights": [
+        "20K+ MAU platform",
+        "100+ fragmented services consolidated",
+        "6 months from discovery to release",
+        "NPS improved from 54% to target 80%"
+      ]
+    },
+    {
+      "company": "Sberbank — ERP Center",
+      "role": "Graphic Designer",
+      "period": "2016 — 2018",
+      "location": "Russia",
+      "description": "Promoted division products via presentations, video content, and training materials.",
+      "highlights": []
+    },
+    {
+      "company": "Sberbank — Financial Management",
+      "role": "Financier",
+      "period": "2011 — 2016",
+      "location": "Russia",
+      "description": "Produced and automated fiscal reporting.",
+      "highlights": []
+    }
+  ],
+  "skills": {
+    "design": ["Figma", "Antigravity", "Storybook", "Claude Code", "Adobe Illustrator", "Photoshop", "After Effects"],
+    "systems": ["Design Systems", "iOS Guidelines", "Material Design", "Accessibility (WCAG)"],
+    "domains": ["Enterprise UX", "B2B / B2E", "FinTech", "AI/ML Platforms", "Data Visualization", "Information Architecture"],
+    "dev": ["HTML/CSS/JS", "Webflow", "Git", "Redux/MobX", "React", "Jira", "Webpack", "Node.js"]
+  },
+  "projects": [
+    {
+      "id": "quantpi",
+      "name": "QuantPi Platform",
+      "company": "QuantPi",
+      "period": "2024 — Present",
+      "status": "Under NDA",
+      "description": "Full-cycle UX/UI for an AI testing system used by 5+ Enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services.",
+      "tags": ["AI/ML", "Data Viz", "Design System", "Enterprise"]
+    },
+    {
+      "id": "costplatform",
+      "name": "CostPlatform",
+      "company": "Sberbank",
+      "period": "2019 — 2022",
+      "status": "Live",
+      "description": "Replaced SAP Fiori for 20K+ internal users by merging 100+ fragmented services into a single scalable product. Sole designer from discovery to release in 6 months.",
+      "tags": ["FinTech", "B2E", "SAP Replacement", "IA"],
+      "metrics": {
+        "beforeNPS": 54,
+        "targetNPS": 80,
+        "mau": "20K+",
+        "dau": "2K",
+        "feedbackMessages": "2000+",
+        "pilotUsers": 267,
+        "timeline": "6 months"
+      },
+      "link": "sc_platform.html"
+    },
+    {
+      "id": "sc_platform",
+      "name": "Security Control Platform",
+      "company": "Sberbank",
+      "period": "2023",
+      "status": "Under NDA",
+      "description": "Rebuilt financial portal from SAP UI5 to ReactJS. Consolidated 100+ services into 10 groups with max 2 menu levels.",
+      "tags": ["Enterprise", "React", "Material Design"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's in Computer Science in Economics",
+      "school": "University of Humanities",
+      "period": "2004 — 2009",
+      "note": "Recognized by Anabin"
+    }
+  ],
+  "certifications": [
+    { "name": "Google UX Certification", "year": "2021" },
+    { "name": "Front-end Developer Program — Yandex", "year": "2022" },
+    { "name": "C++ Coursework — Bauman Moscow State Technical University", "year": "2019" }
+  ],
+  "languages": [
+    { "name": "English", "level": "Fluent", "detail": "" },
+    { "name": "German", "level": "B1", "detail": "" },
+    { "name": "Russian", "level": "Native", "detail": "" }
+  ],
+  "chartData": [
+    { "label": "Before", "value": 4.2, "color": "var(--bar-before, #93c5fd)" },
+    { "label": "After", "value": 1.1, "color": "var(--bar-after, #2563eb)" }
+  ]
+}
