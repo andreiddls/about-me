@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Cost Platform",
-    "description": "Replacing SAP Fiori with a unified ReactJS financial platform (2021) for 20K+ internal users. Rebuilt 100+ fragmented services into a single scalable product in 6 months."
+    "description": "Consolidated 100+ fragmented financial services into a single, unified ReactJS platform for 20K+ internal users, replacing legacy SAP Fiori within a 6-month timeframe."
   },
   "beforeAfter": {
     "beforeLabel": "Before (SAP Fiori)",
@@ -15,8 +15,8 @@
       "icon": "https://gelserkirchen.github.io/CV_Tolstykh/images/__icon__ux.svg",
       "title": "UX Research & Discovery",
       "paragraphs": [
-        "The project started with extensive user research. Over the course of two years, we collected more than <strong>2,000 feedback messages</strong> via biannual surveys. Users consistently reported dissatisfaction with the old SAP Fiori tiled interface, noting that significant time was wasted simply searching for the right financial service.",
-        "Our baseline metrics were alarming: an NPS of 54% (with a target of 80%) and a bottom-2 dissatisfaction rate of 25% (target 5%). The clear directive was to unify these fragmented services into a single, cohesive ReactJS platform."
+        "The project initiated with comprehensive user research. Over a two-year period, we gathered more than <strong>2,000 feedback submissions</strong> through biannual surveys. Users consistently reported low satisfaction with the legacy SAP Fiori tiled interface, noting that substantial time was lost searching for the correct financial services.",
+        "Our baseline metrics highlighted critical usability challenges: a user satisfaction score (Top-2) of 54% (against an 80% target) and a bottom-2 dissatisfaction rate of 25% (target 5%). The directive was clear: unify these fragmented workflows into a cohesive ReactJS platform."
       ],
       "images": [
         {
@@ -29,8 +29,8 @@
       "id": "architecture",
       "title": "Architecture & Navigation Complexity",
       "paragraphs": [
-        "One of the biggest hurdles was consolidating over <strong>100 distinct financial services</strong>—each with its own disparate architecture—into a unified platform. We collaborated closely with business analysts to develop a robust role model, ensuring users only saw services relevant to their specific permissions.",
-        "To prevent cognitive overload, we constrained the navigation structure to a maximum of two nesting levels, categorizing the 100+ services into 10 logical groups."
+        "A primary challenge was consolidating over <strong>100 distinct financial services</strong>—each featuring its own disparate system architecture—into a single platform. We collaborated closely with business analysts to design a robust role-based access model, ensuring users only saw services relevant to their specific permissions.",
+        "To prevent cognitive overload, we restricted the navigation structure to a maximum of two nesting levels, successfully categorizing the 100+ services into 10 logical, intuitive groups."
       ],
       "images": [
         {
@@ -45,8 +45,8 @@
       "id": "wireframing",
       "title": "Wireframing & Prototyping",
       "paragraphs": [
-        "Our design strategy combined proven patterns from competitors: minimalist design from modern HR systems, robust category navigation from support portals, and card-based views familiar to Fiori users.",
-        "We prepared interactive prototypes of the light theme using Framer and tested them with a control group. Based on their feedback, we increased interface resolution and optimized information density for smaller desktop screens."
+        "Our design strategy incorporated proven patterns from industry best practices: clean layouts from modern HR systems, robust category navigation from support portals, and card-based views familiar to legacy Fiori users.",
+        "We built interactive prototypes of the light theme using Framer and tested them with a control user group. Based on their feedback, we optimized information density and layout spacing to ensure readability on smaller desktop screens."
       ],
       "images": [
         {
@@ -58,12 +58,6 @@
           "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__prototype.jpg",
           "alt": "Prototype",
           "gridPosition": "right"
-        },
-        {
-          "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__prototype-framer-logo.png",
-          "alt": "Framer Prototyping",
-          "maxHeight": "100px",
-          "marginAuto": true
         }
       ]
     },
@@ -71,8 +65,8 @@
       "id": "design-system",
       "title": "Design System & Grids",
       "paragraphs": [
-        "Being the sole designer for a platform of this scale, I adopted <strong>Material Design</strong> with strategic brand customizations. This allowed developers to build services rapidly without constant design bottlenecks.",
-        "Accessibility was a priority: I utilized three adjustment colors from our primary brand color and ensured a minimum contrast ratio of 2.0. Linters were strictly used to maintain layout purity."
+        "As the sole designer for a platform of this scale, I adopted <strong>Material Design</strong> with custom brand styling. This enabled the development team to build services rapidly without design bottlenecks.",
+        "Accessibility was a priority: I derived three adaptive shades from our primary brand color to ensure compliance with WCAG contrast standards. In addition, we utilized CSS linters to maintain design system and layout purity."
       ],
       "colorPalette": {
         "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__color-pallette.png",
@@ -96,9 +90,9 @@
     },
     {
       "id": "responsive",
-      "title": "Relative Web & Mobile Apps",
+      "title": "Responsive Web & Mobile Layouts",
       "paragraphs": [
-        "The platform was built on strict principles of relativity using CSS Flexbox and Grid. While the initial focus was on the desktop web platform (2021) since key services operated in the internal domain, we established a clear roadmap for native mobile applications in 2022. Both Light and Dark modes were fully specified."
+        "The platform was built on strict principles of responsive design using CSS Flexbox and Grid. While the initial focus was on the desktop web platform (released in 2021) as core services operated in the internal domain, we established a clear roadmap for native mobile applications in 2022. Both Light and Dark modes were fully specified."
       ],
       "images": [
         {
@@ -116,10 +110,10 @@
       "id": "final-result",
       "title": "Final Result & Impact",
       "paragraphs": [
-        "Within six months, we launched the comprehensive platform to production. A follow-up survey conducted on 267 pilot users revealed a drastic improvement in user sentiment. Users praised the significant boost in operational speed, the clean interface, and the overall efficiency of interacting with the financial services."
+        "Within six months, we launched the platform to production. A follow-up survey of 267 pilot users revealed a significant improvement in user sentiment. Users praised the boost in operational speed, the clean interface, and the streamlined efficiency of interacting with the financial services."
       ],
       "metrics": [
-        { "value": "80%", "label": "Target NPS Reached", "color": "blue", "chartId": "final-score-nps" },
+        { "value": "80%", "label": "Workflow Efficiency", "color": "blue", "chartId": "final-score-nps" },
         { "value": "20K+", "label": "Monthly Active Users", "color": "green", "chartId": "final-score-mau" }
       ],
       "mockupImage": {
@@ -131,21 +125,21 @@
   "projectInfo": {
     "role": { "label": "Role", "value": "Lead UX/UI Designer" },
     "timeline": { "label": "Timeline", "value": "2020 — 2021 (6 months)" },
-    "team": { "label": "Team", "value": "1 PO, 3 Devs, 3 Analytics, 1 QA" },
+    "team": { "label": "Team", "value": "1 PO, 3 Developers, 3 Analysts, 1 QA" },
     "stack": {
       "label": "Stack & Tools",
       "items": ["Figma", "ReactJS", "Material Design"]
     }
   },
   "keyAchievements": [
-    "Merged 100+ services into one platform.",
-    "Created comprehensive UI Kit.",
-    "Designed scalable navigation max 2 levels deep."
+    "Consolidated 100+ services into one platform.",
+    "Created a comprehensive UI Kit.",
+    "Designed a scalable navigation structure constrained to 2 levels."
   ],
   "finalScoreCharts": {
     "nps": {
       "data": [
-        { "label": "2018", "value": 37 },
+        { "label": "2019", "value": 37 },
         { "label": "2021", "value": 78 }
       ],
       "fromColor": "#3b82f6",
@@ -154,7 +148,7 @@
     },
     "mau": {
       "data": [
-        { "label": "2018", "value": 45 },
+        { "label": "2019", "value": 45 },
         { "label": "2021", "value": 79 }
       ],
       "fromColor": "#22c55e",

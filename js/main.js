@@ -632,7 +632,7 @@ function renderFinalResultSection(section) {
                     <div style="background: var(--bg-tile); padding: var(--space-4); border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                         <div style="font-size: 3rem; font-weight: 800; color: ${m.color === 'blue' ? 'var(--accent-blue)' : 'var(--accent-green)'}; line-height: 1;">${escapeHtml(m.value)}</div>
                         <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-3); font-weight: 500;">${escapeHtml(m.label)}</div>
-                        ${m.chartId ? `<div id="${escapeHtml(m.chartId)}" style="width: 100%; height: 250px; margin-top: var(--space-3);"></div>` : ''}
+                        ${m.chartId ? `<div id="${escapeHtml(m.chartId)}" style="width: 100%; height: 180px; margin-top: var(--space-3);"></div>` : ''}
                     </div>
                 `).join('')}
             </div>
@@ -697,7 +697,9 @@ export function renderKeyAchievements(data) {
         <div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
             ${data.keyAchievements.map(ach => `
                 <div style="display: flex; align-items: flex-start; gap: var(--space-2);">
-                    <div style="color: var(--accent-green);">✓</div>
+                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
                     <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${escapeHtml(ach)}</div>
                 </div>
             `).join('')}

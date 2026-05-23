@@ -23,12 +23,13 @@ const getValue = (d) => d.value;
 function FinalScoreChart({ width, height, data, fromColor, toColor, textColor }) {
   if (width < 10 || height < 10) return null;
 
-  const margin = { top: 60, bottom: 40, left: 10, right: 10 };
+  const margin = { top: 40, bottom: 30, left: 10, right: 10 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
   const xScale = useMemo(() => scaleBand({
     range: [0, innerWidth],
+    data: data.map(getLabel),
     domain: data.map(getLabel),
     padding: 0.25,
   }), [innerWidth, data]);
@@ -48,12 +49,13 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
       </defs>
 
       <Group left={margin.left} top={margin.top}>
-        {data.map((d) => {
+        {data.map((d, index) => {
           const label = getLabel(d);
           const barWidth = xScale.bandwidth();
           const barHeight = innerHeight - yScale(getValue(d));
           const barX = xScale(label);
           const barY = innerHeight - barHeight;
+          const isLeft = index === 0;
 
           return (
             <Group key={`bar-${label}`}>
@@ -67,10 +69,10 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
               />
               <Text
                 x={barX + barWidth / 2}
-                y={barY + 30}
+                y={barY + (isLeft ? 22 : 30)}
                 textAnchor="middle"
                 fill="#ffffff"
-                fontSize={22}
+                fontSize={isLeft ? 16 : 22}
                 fontWeight={700}
                 fontFamily="var(--font-sans, Inter, sans-serif)"
               >
@@ -78,7 +80,7 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
               </Text>
               <Text
                 x={barX + barWidth / 2}
-                y={innerHeight + 24}
+                y={innerHeight + 20}
                 textAnchor="middle"
                 fill="var(--text-primary, #333)"
                 fontSize={16}

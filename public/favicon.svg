@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      /* Light Theme (Default) */
+      .bg {
+        fill: #2563eb;
+        stroke: none;
+      }
+      .monogram {
+        stroke: #ffffff;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      /* Dark Theme Override */
+      @media (prefers-color-scheme: dark) {
+        .bg {
+          fill: #14171d; /* matching --bg-inset in dark mode */
+          stroke: #3b82f6; /* matching --accent-blue in dark mode */
+          stroke-width: 1.5;
+        }
+        .monogram {
+          stroke: #3b82f6; /* matching --accent-blue */
+        }
+      }
+    </style>
+  </defs>
+  
+  <!-- Background Card -->
+  <rect class="bg" x="1.5" y="1.5" width="29" height="29" rx="8.5" />
+  
+  <!-- Letters Group -->
+  <g class="monogram">
+    <!-- Letter A -->
+    <path d="M 6.5 23 L 11.5 9 L 16.5 23 M 9 18 H 14" />
+    <!-- Letter T -->
+    <path d="M 18.5 9 H 25.5 M 22 9 V 23" />
+  </g>
+</svg>
