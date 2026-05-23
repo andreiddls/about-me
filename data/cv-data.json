@@ -4,7 +4,7 @@
     "subtitle": "Senior Product Designer",
     "location": "Saarbrücken (Germany)",
     "locationEmoji": "📍",
-    "text": "Hi, I'm Andrei, a Senior Product Designer with 6+ years of experience in FinTech and AI, currently based in Germany. I design complex B2B platforms and turn business requirements into scalable product experiences.",
+    "text": "Hi, I’m Andrei, a Senior Product Designer with 6+ years of experience in FinTech and AI, building AI-first B2B experiences. I combine product thinking, AI-assisted workflows, and modern tools like Claude Code / Antigravity to design scalable platforms, prototype faster, and bridge the gap between design and engineering.",
     "avatar": {
       "src": "/avatar.png",
       "initials": "AT"
@@ -36,7 +36,7 @@
       "company": "Sberbank",
       "role": "Product Designer / Lead UI/UX",
       "period": "2019 — 2022",
-      "location": "Russia",
+      "location": "Moscow",
       "description": "Designed enterprise finance platforms, simplifying complex processes across 10+ internal services. Delivered responsive web and mobile solutions in agile, cross-functional teams.",
       "highlights": [
         "20K+ MAU platform",
@@ -49,7 +49,7 @@
       "company": "Sberbank — ERP Center",
       "role": "Graphic Designer",
       "period": "2016 — 2018",
-      "location": "Russia",
+      "location": "Moscow",
       "description": "Promoted division products via presentations, video content, and training materials.",
       "highlights": []
     },
@@ -57,7 +57,7 @@
       "company": "Sberbank — Financial Management",
       "role": "Financier",
       "period": "2011 — 2016",
-      "location": "Russia",
+      "location": "Moscow",
       "description": "Produced and automated fiscal reporting.",
       "highlights": []
     }
@@ -76,7 +76,28 @@
       "period": "2024 — Present",
       "status": "Under NDA",
       "description": "Full-cycle UX/UI for an AI testing system used by 5+ Enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services.",
-      "tags": ["AI/ML", "Data Viz", "Design System", "Enterprise"]
+      "tags": ["AI/ML", "Data Viz", "Design System", "Enterprise"],
+      "achievements": [
+        "10+ AI evaluation modules",
+        "3 core AI pipelines unified",
+        "5+ enterprise clients supported",
+        "End to end platform ownership"
+      ]
+    },
+    {
+      "id": "sc_platform",
+      "name": "AI Hub",
+      "company": "QuantPi",
+      "period": "2023",
+      "status": "Under NDA",
+      "description": "Design of an enterprise AI governance platform for evaluating LLM systems against regulatory and trust frameworks. Designed Trust Profiles, risk matrices, and automated assessment workflows.",
+      "tags": ["Enterprise", "React", "Material Design"],
+      "achievements": [
+        "50+ compliance checks automated",
+        "Risk evaluation workflows simplified",
+        "Multi framework AI governance",
+        "Trust assessment automation"
+      ]
     },
     {
       "id": "costplatform",
@@ -95,16 +116,13 @@
         "pilotUsers": 267,
         "timeline": "6 months"
       },
-      "link": "sc_platform.html"
-    },
-    {
-      "id": "sc_platform",
-      "name": "Security Control Platform",
-      "company": "Sberbank",
-      "period": "2023",
-      "status": "Under NDA",
-      "description": "Rebuilt financial portal from SAP UI5 to ReactJS. Consolidated 100+ services into 10 groups with max 2 menu levels.",
-      "tags": ["Enterprise", "React", "Material Design"]
+      "link": "sc_platform.html",
+      "achievements": [
+        "20K+ active users unified",
+        "100+ services consolidated",
+        "80% task completion efficiency",
+        "6 months from concept to launch"
+      ]
     }
   ],
   "education": [

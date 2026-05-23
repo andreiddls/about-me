@@ -646,6 +646,8 @@ h3 {
     background: var(--bg-inset);
     position: relative;
     border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card.active-project {
@@ -712,13 +714,42 @@ h3 {
     font-size: 0.8rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
+}
+
+.project-achievements {
+    list-style: none;
+    margin: var(--space-3) 0 var(--space-4) 0;
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.achievement-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--accent-green);
+    flex-shrink: 0;
+    margin-top: 1px;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
+    margin-top: auto;
+    padding-top: var(--space-3);
 }
 
 .project-tag {
@@ -987,6 +1018,7 @@ h3 {
 .theme-toggle svg {
     width: 1.5rem;
     height: 1.5rem;
+    overflow: visible;
 }
 
 /* ─── Scroll Animations ─── */

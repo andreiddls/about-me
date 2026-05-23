@@ -177,6 +177,12 @@ function renderSkills() {
     container.innerHTML = html;
 }
 
+function formatAchievementText(text) {
+    const escaped = escapeHtml(text);
+    const regex = /^(\d+(?:[Kk]?\+?|%|(?:\s+(?:months|core)))?)(.*)$/;
+    return escaped.replace(regex, '<strong>$1</strong>$2');
+}
+
 function renderProjects() {
     const container = document.getElementById('projects-list');
     if (!container || !cvData.projects) return;
@@ -190,6 +196,19 @@ function renderProjects() {
         const arrowIcon = hasLink ? '<svg class="project-card-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M5.636 18.364l12.728-12.728M18.364 5.636H8.464M18.364 5.636v9.9"/></svg>' : '';
         const cardClasses = `project-card${hasLink ? ' has-link' : ''}${isActive ? ' active-project' : ''}`;
 
+        const achievementsHtml = project.achievements && project.achievements.length ? `
+            <ul class="project-achievements">
+                ${project.achievements.map(ach => `
+                    <li class="achievement-item">
+                        <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>${formatAchievementText(ach)}</span>
+                    </li>
+                `).join('')}
+            </ul>
+        ` : '';
+
         return `
         <div class="${cardClasses}" data-project="${escapeHtml(project.id)}" ${hasLink ? `data-link="${escapeHtml(project.link)}"` : ''}>
             ${arrowIcon}
@@ -199,6 +218,7 @@ function renderProjects() {
             </div>
             <h4>${escapeHtml(project.name)}</h4>
             <p>${escapeHtml(project.description)}</p>
+            ${achievementsHtml}
             <div class="project-tags">
                 ${project.tags ? project.tags.map(tag => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('') : ''}
             </div>

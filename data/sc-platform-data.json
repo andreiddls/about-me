@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Cost Platform",
-    "description": "Replacing SAP Fiori with a unified ReactJS financial platform for 20K+ internal users. Rebuilt 100+ fragmented services into a single scalable product in 6 months."
+    "description": "Replacing SAP Fiori with a unified ReactJS financial platform (2021) for 20K+ internal users. Rebuilt 100+ fragmented services into a single scalable product in 6 months."
   },
   "beforeAfter": {
     "beforeLabel": "Before (SAP Fiori)",

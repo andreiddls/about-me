@@ -40,7 +40,12 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
 
   return (
     <svg width={width} height={height}>
-      <LinearGradient id={`gradient-${fromColor.replace('#','')}`} from={fromColor} to={toColor} />
+      <defs>
+        <LinearGradient id={`gradient-${fromColor.replace('#','')}`} from={fromColor} to={toColor} />
+        <marker id={`arrow-${fromColor.replace('#','')}`} markerWidth="20" markerHeight="20" refX="10" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+          <path d="M 2 4 L 10 10 L 2 16" fill="transparent" stroke={textColor} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+        </marker>
+      </defs>
 
       <Group left={margin.left} top={margin.top}>
         {data.map((d) => {
@@ -108,14 +113,7 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
                  stroke={textColor}
                  strokeWidth={4}
                  strokeLinecap="round"
-              />
-              <path
-                 d={`M ${endX - 15},${endY - 5} L ${endX},${endY} L ${endX - 10},${endY + 12}`}
-                 fill="transparent"
-                 stroke={textColor}
-                 strokeWidth={4}
-                 strokeLinecap="round"
-                 strokeLinejoin="round"
+                 markerEnd={`url(#arrow-${fromColor.replace('#','')})`}
               />
             </Group>
           );
