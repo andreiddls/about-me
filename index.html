@@ -4,97 +4,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei Tolstykh — Senior Product Designer | 🇩🇪 Saarbrücken, Germany</title>
+    <title>Andrei Tolstykh | Senior Product Designer for AI, B2B and Design Systems</title>
     <meta name="description"
-        content="Senior Product Designer with 6+ years in FinTech and AI. B2B platforms and scalable product experiences.">
+        content="Senior Product Designer with 7+ years of experience across Big Tech and AI startups. Specialized in complex B2B products, Storybook design systems and AI-powered prototyping.">
+    <link rel="canonical" href="https://andreiddls.github.io/about-me/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Andrei Tolstykh | Senior Product Designer">
+    <meta property="og:description"
+        content="Product designer specializing in complex B2B products, AI platforms, Storybook design systems and functional prototyping.">
+    <meta property="og:url" content="https://andreiddls.github.io/about-me/">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar.png">
+    <meta property="og:image:alt" content="Andrei Tolstykh — Senior Product Designer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Andrei Tolstykh",
+        "jobTitle": "Senior Product Designer",
+        "url": "https://andreiddls.github.io/about-me/",
+        "image": "https://andreiddls.github.io/about-me/avatar.png",
+        "email": "mailto:tolstykhandrew@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Saarbrücken",
+          "addressRegion": "Saarland",
+          "addressCountry": "DE"
+        },
+        "knowsAbout": [
+          "Product Design",
+          "UI/UX Design",
+          "Enterprise UX",
+          "B2B Products",
+          "AI Platforms",
+          "Design Systems",
+          "Storybook",
+          "AI-powered prototyping",
+          "Claude Code",
+          "Codex",
+          "Grok",
+          "Webflow"
+        ],
+        "sameAs": [
+          "https://linkedin.com/in/tolstykhaa",
+          "https://github.com/andreiddls"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "QuantPi"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "Sberbank"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
     <div class="page-wrapper">
         <main class="bento-layout">
-            <!-- LEFT COLUMN (70%) -->
             <div class="col-left">
-                <!-- Tile 1: About Me -->
+                <!-- PRERENDER_ABOUT -->
                 <article class="bento-tile tile-about" data-tile="about">
                     <div class="about-photo">
-                        <img id="about-avatar-img" src="avatar.png" alt="Andrei Tolstykh" loading="lazy"
+                        <img src="avatar.png" alt="Andrei Tolstykh" loading="lazy"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div id="about-avatar-placeholder" class="avatar-placeholder" style="display:none;">AT</div>
+                        <div class="avatar-placeholder" style="display:none;">AT</div>
                     </div>
                     <div class="tile-content about-body">
-                        <div class="about-meta">
-                            <h1 id="about-name"></h1>
-                            <p class="subtitle"><span id="about-subtitle"></span> <span id="about-location"></span></p>
-                        </div>
-                        <p class="about-text" id="about-text"></p>
-                        <div class="about-links" id="about-links">
-                            <!-- Populated via JS -->
-                        </div>
+                        <header class="about-meta">
+                            <h1>Andrei Tolstykh</h1>
+                            <p class="subtitle"><span>Senior Product Designer</span> <span>📍 Saarbrücken (Germany)</span></p>
+                        </header>
+                        <section aria-labelledby="about-title">
+                            <h2 id="about-title">About</h2>
+                            <div class="about-paragraphs">
+                            <p class="about-text">I'm a Product and UI/UX Designer with 7+ years of experience designing complex B2B products across Big Tech and startup environments. Currently, I work at an AI startup, where I design a platform for trustworthy and responsible AI. Previously, I worked at one of Eastern Europe's largest FinTech companies, designing a large-scale financial platform and contributing to SAP-based enterprise solutions.</p>
+                            <p class="about-text">I specialize in simplifying complex workflows and creating scalable product experiences. I collaborate closely with engineers and product teams and have built two large-scale design systems in Storybook.</p>
+                            <p class="about-text">Using AI-powered CLI tools such as Claude Code, Codex, and Grok, I develop and maintain these systems and turn their components into functional, high-fidelity prototypes.</p>
+                            </div>
+                        </section>
+                        <nav class="about-links" aria-label="Contact links">
+                            <a href="https://linkedin.com/in/tolstykhaa" target="_blank" rel="noopener" class="link-chip">
+                                <svg class="icon" viewBox="-2 -2 28 28" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:tolstykhandrew@gmail.com" class="link-chip">
+                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                                <span>Email</span>
+                            </a>
+                            <a href="https://onedrive.live.com/?cid=5cd8c3542857ecb5&amp;id=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263b&amp;resid=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263&amp;ithint=file%2Cpdf&amp;e=Q2fykI&amp;migratedtospo=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy81Y2Q4YzM1NDI4NTdlY2I1L0lRRFNqQmFBb091VlNMRDQ5bkRLYUNZN0Faa1hVSGwyc1g4WWxDbUJmU0xGN1FnP2U9UTJmeWtJ&amp;v=validatepermission" target="_blank" rel="noopener" class="link-chip link-cv">
+                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                                </svg>
+                                <span>CV PDF</span>
+                            </a>
+                        </nav>
                     </div>
                 </article>
+                <!-- /PRERENDER_ABOUT -->
 
-                <!-- Tile 2: Selected Projects -->
-                <article class="bento-tile tile-projects" data-tile="projects">
+                <section class="bento-tile tile-projects" data-tile="projects" aria-labelledby="projects-title">
                     <div class="tile-content">
-                        <h2>Selected Projects</h2>
-                        <div class="projects-list" id="projects-list">
-                            <!-- Populated via JS -->
+                        <h2 id="projects-title">Selected Projects</h2>
+                        <div class="projects-list">
+                            <!-- PRERENDER_PROJECTS -->
+                        <article class="project-card" data-project="quantpi">
+                            
+                            <header class="project-card-header">
+                                <span class="project-status status-nda"><svg class="nda-lock" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg>Under NDA</span>
+                                <time class="project-period" datetime="2024">2024 — Present</time>
+                            </header>
+                            <h3>QuantPi Platform</h3>
+                            <p>Full-cycle UX/UI for an AI testing system used by 5+ Enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services.</p>
+                            <ul class="project-achievements">
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>10+</strong> AI evaluation modules</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>3 core</strong> AI pipelines unified</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>5+</strong> enterprise clients supported</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>End to end platform ownership</span>
+                                </li>
+                            </ul>
+                            <ul class="project-tags" aria-label="Project tags">
+                                <li><span class="project-tag">AI/ML</span></li>
+                                <li><span class="project-tag">Data Viz</span></li>
+                                <li><span class="project-tag">Design System</span></li>
+                                <li><span class="project-tag">Enterprise</span></li>
+                            </ul>
+                        </article>
+                        <article class="project-card" data-project="sc_platform">
+                            
+                            <header class="project-card-header">
+                                <span class="project-status status-nda"><svg class="nda-lock" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg>Under NDA</span>
+                                <time class="project-period" datetime="">2023</time>
+                            </header>
+                            <h3>AI Hub</h3>
+                            <p>Design of an enterprise AI governance platform for evaluating LLM systems against regulatory and trust frameworks. Designed Trust Profiles, risk matrices, and automated assessment workflows.</p>
+                            <ul class="project-achievements">
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>50+</strong> compliance checks automated</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Risk evaluation workflows simplified</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Multi framework AI governance</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Trust assessment automation</span>
+                                </li>
+                            </ul>
+                            <ul class="project-tags" aria-label="Project tags">
+                                <li><span class="project-tag">Enterprise</span></li>
+                                <li><span class="project-tag">React</span></li>
+                                <li><span class="project-tag">Material Design</span></li>
+                            </ul>
+                        </article>
+                        <article class="project-card has-link active-project" data-project="costplatform" data-link="sc_platform.html">
+                            <svg class="project-card-arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.636 18.364l12.728-12.728M18.364 5.636H8.464M18.364 5.636v9.9"/></svg>
+                            <header class="project-card-header">
+                                <span class="project-status">Live</span>
+                                <time class="project-period" datetime="2019/2022">2019 — 2022</time>
+                            </header>
+                            <h3>CostPlatform</h3>
+                            <p>Replaced SAP Fiori for 20K+ internal users by merging 100+ fragmented services into a single scalable product. Sole designer from discovery to release in 6 months.</p>
+                            <ul class="project-achievements">
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>20K+</strong> active users unified</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>100+</strong> services consolidated</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>80%</strong> task completion efficiency</span>
+                                </li>
+                                <li class="achievement-item">
+                                    <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>6 months</strong> from concept to launch</span>
+                                </li>
+                            </ul>
+                            <ul class="project-tags" aria-label="Project tags">
+                                <li><span class="project-tag">FinTech</span></li>
+                                <li><span class="project-tag">B2E</span></li>
+                                <li><span class="project-tag">SAP Replacement</span></li>
+                                <li><span class="project-tag">IA</span></li>
+                            </ul>
+                        </article>
+                <!-- /PRERENDER_PROJECTS -->
                         </div>
                     </div>
-                </article>
+                </section>
 
-                <!-- Tile 3: Experience -->
-                <article class="bento-tile tile-experience" data-tile="experience">
+                <section class="bento-tile tile-experience" data-tile="experience" aria-labelledby="experience-title">
                     <div class="tile-content">
-                        <h2>Experience</h2>
-                        <div class="exp-timeline" id="experience-list">
-                            <!-- Populated via JS -->
+                        <h2 id="experience-title">Experience</h2>
+                        <div class="exp-timeline">
+                            <!-- PRERENDER_EXPERIENCE -->
+                            <article class="exp-item">
+                                <header class="exp-header">
+                                    <h3 class="exp-heading">Senior Product Designer at QuantPi</h3>
+                                    <time class="exp-period" datetime="2022">2022 — Present</time>
+                                </header>                                <p class="exp-location">Germany</p>
+                                <p class="exp-desc">Lead product design for an enterprise AI platform, simplifying complex evaluation workflows and data-heavy experiences. Built two large-scale design systems in Storybook and use AI-powered CLI tools to turn production components into functional, high-fidelity prototypes.</p>
+                                <ul class="exp-highlights">
+                                    <li>2 large-scale Storybook design systems built</li>
+                                    <li>10+ AI evaluation modules designed</li>
+                                    <li>Full-cycle UX/UI across 3 core services</li>
+                                </ul>
+                            </article>
+                            <article class="exp-item">
+                                <header class="exp-header">
+                                    <h3 class="exp-heading">Product Designer / Lead UI/UX at Sberbank</h3>
+                                    <time class="exp-period" datetime="2019/2022">2019 — 2022</time>
+                                </header>                                <p class="exp-location">Moscow</p>
+                                <p class="exp-desc">Designed a large-scale enterprise FinTech platform, simplifying fragmented financial workflows across 100+ internal services. Worked end-to-end from discovery and research to responsive web and mobile delivery.</p>
+                                <ul class="exp-highlights">
+                                    <li>20K+ MAU platform</li>
+                                    <li>100+ fragmented services consolidated</li>
+                                    <li>6 months from discovery to release</li>
+                                    <li>NPS improved from 54% toward 80% target</li>
+                                </ul>
+                            </article>
+                            <article class="exp-item">
+                                <header class="exp-header">
+                                    <h3 class="exp-heading">Graphic Designer at Sberbank — ERP Center</h3>
+                                    <time class="exp-period" datetime="2016/2018">2016 — 2018</time>
+                                </header>                                <p class="exp-location">Moscow</p>
+                                <p class="exp-desc">Promoted division products via presentations, video content, and training materials.</p>
+                            </article>
+                            <article class="exp-item">
+                                <header class="exp-header">
+                                    <h3 class="exp-heading">Financier at Sberbank — Financial Management</h3>
+                                    <time class="exp-period" datetime="2011/2016">2011 — 2016</time>
+                                </header>                                <p class="exp-location">Moscow</p>
+                                <p class="exp-desc">Produced and automated fiscal reporting.</p>
+                            </article>
+                <!-- /PRERENDER_EXPERIENCE -->
                         </div>
                     </div>
-                </article>
-
-
+                </section>
             </div>
 
-            <!-- RIGHT COLUMN (30%) -->
             <div class="col-right">
-                <!-- Tile 4: Education & Languages -->
-                <article class="glass-panel animate-on-scroll" data-tile="education">
-                    <h2 class="glass-title">Education & Certifications</h2>
-                    <div class="glass-list" id="education-list">
-                        <!-- Populated via JS -->
+                <section class="glass-panel animate-on-scroll" data-tile="education" aria-labelledby="education-title">
+                    <h2 id="education-title" class="glass-title">Education & Certifications</h2>
+                    <div class="glass-list">
+                        <!-- PRERENDER_EDUCATION -->
+<div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
+                            <article class="edu-item">
+                                <h3 class="edu-degree">Bachelor's in Computer Science in Economics</h3>
+                                <p class="edu-meta">University of Humanities · <time datetime="2004/2009">2004 — 2009</time><br>Recognized by Anabin</p>
+                            </article><div class="section-divider" aria-hidden="true"></div><h3 class="cert-heading">Certifications</h3><ul class="cert-list">
+                            <li class="cert-item">
+                                <span class="cert-name">Google UX Certification</span>
+                                <time class="cert-year" datetime="2021">2021</time>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-name">Front-end Developer Program — Yandex</span>
+                                <time class="cert-year" datetime="2022">2022</time>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-name">C++ Coursework — Bauman Moscow State Technical University</span>
+                                <time class="cert-year" datetime="2019">2019</time>
+                            </li></ul></div>
+                <!-- /PRERENDER_EDUCATION -->
                     </div>
 
-                    <h2 class="glass-title" style="margin-top: var(--space-2);">Languages</h2>
-                    <div class="glass-list" id="languages-list">
-                        <!-- Populated via JS -->
+                    <h2 class="glass-title languages-title" id="languages-title">Languages</h2>
+                    <div class="glass-list">
+                        <!-- PRERENDER_LANGUAGES -->
+<div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                            <article class="lang-item">
+                                <span class="lang-name">English</span>
+                                <span class="lang-level">Fluent</span>
+                            </article>
+                            <article class="lang-item">
+                                <span class="lang-name">German</span>
+                                <span class="lang-level">B1</span>
+                            </article>
+                            <article class="lang-item">
+                                <span class="lang-name">Russian</span>
+                                <span class="lang-level">Native</span>
+                            </article>
+                        </div>
+                <!-- /PRERENDER_LANGUAGES -->
                     </div>
-                </article>
+                </section>
 
-                <!-- Tile 5: Skills & Tools -->
-                <article class="glass-panel animate-on-scroll" data-tile="skills">
-                    <h2 class="glass-title">Skills & Tools</h2>
-                    <div class="glass-list" id="skills-list">
-                        <!-- Populated via JS -->
+                <section class="glass-panel animate-on-scroll" data-tile="skills" aria-labelledby="skills-title">
+                    <h2 id="skills-title" class="glass-title">Skills & Tools</h2>
+                    <div class="glass-list">
+                        <!-- PRERENDER_SKILLS -->
+                    <div class="inner-card skills-card">
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Product Design</h3>
+                                <ul class="skill-tags">
+                                    <li><span class="skill-tag">UX/UI Design</span></li>
+                                    <li><span class="skill-tag">Product Design</span></li>
+                                    <li><span class="skill-tag">Interaction Design</span></li>
+                                    <li><span class="skill-tag">Complex B2B Workflows</span></li>
+                                    <li><span class="skill-tag">Prototyping</span></li>
+                                    <li><span class="skill-tag">Product Strategy</span></li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Design Systems &amp; Prototyping</h3>
+                                <ul class="skill-tags">
+                                    <li><span class="skill-tag">Storybook</span></li>
+                                    <li><span class="skill-tag">Component-Based Design</span></li>
+                                    <li><span class="skill-tag">Design Systems</span></li>
+                                    <li><span class="skill-tag">Design Tokens</span></li>
+                                    <li><span class="skill-tag">Functional Prototyping</span></li>
+                                    <li><span class="skill-tag">Frontend Collaboration</span></li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">AI &amp; Development Tools</h3>
+                                <ul class="skill-tags">
+                                    <li><span class="skill-tag">Claude Code</span></li>
+                                    <li><span class="skill-tag">Codex</span></li>
+                                    <li><span class="skill-tag">Grok</span></li>
+                                    <li><span class="skill-tag">AI-Powered CLI Workflows</span></li>
+                                    <li><span class="skill-tag">GitHub</span></li>
+                                    <li><span class="skill-tag">HTML/CSS</span></li>
+                                    <li><span class="skill-tag">JavaScript</span></li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h3 class="skill-category-title">Visual &amp; No-Code</h3>
+                                <ul class="skill-tags">
+                                    <li><span class="skill-tag">Figma</span></li>
+                                    <li><span class="skill-tag">Webflow</span></li>
+                                    <li><span class="skill-tag">Adobe Creative Suite</span></li>
+                                    <li><span class="skill-tag">Motion Design</span></li>
+                                    <li><span class="skill-tag">Presentations</span></li>
+                                </ul>
+                            </div>
                     </div>
-                </article>
+                <!-- /PRERENDER_SKILLS -->
+                    </div>
+                </section>
 
-                <!-- Tile 6: Contact / CTA -->
-                <article class="glass-panel animate-on-scroll" data-tile="contact">
-                    <h2 class="glass-title">Let's work together</h2>
+                <section class="glass-panel animate-on-scroll" data-tile="contact" aria-labelledby="contact-title">
+                    <h2 id="contact-title" class="glass-title">Let's connect</h2>
                     <div class="inner-card">
                         <p class="contact-text"
                             style="margin-bottom: var(--space-4); font-size: 0.85rem; color: var(--text-secondary);">
-                            Open for senior product design roles and consulting in B2B/FinTech.</p>
+                            Always happy to connect with people working on complex B2B products, design systems, and AI-powered product development.</p>
                         <div class="contact-actions"
                             style="display: flex; flex-direction: column; gap: var(--space-2);">
                             <a href="mailto:tolstykhandrew@gmail.com" class="btn-primary">
-                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path
                                         d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                                 </svg>
@@ -102,7 +416,7 @@
                             </a>
                             <a href="https://linkedin.com/in/tolstykhaa" target="_blank" rel="noopener"
                                 class="btn-secondary">
-                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path
                                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                 </svg>
@@ -110,29 +424,25 @@
                             </a>
                         </div>
                     </div>
-                </article>
+                </section>
             </div>
         </main>
     </div>
 
-    <!-- Project Modal -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-content">
             <button class="modal-close" aria-label="Close">
-                <svg viewBox="0 0 24 24" fill="currentColor">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path
                         d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7A1 1 0 005.7 7.11L10.59 12 5.7 16.89a1 1 0 101.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z" />
                 </svg>
             </button>
-            <div class="modal-body" id="modal-body">
-                <!-- Dynamic content -->
-            </div>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
 
-    <!-- Theme Toggle -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;" aria-hidden="true">
             <circle cx="12" cy="12" r="5" />
             <rect x="11" y="1.5" width="2" height="3.5" rx="1" />
             <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(45 12 12)" />
@@ -143,7 +453,7 @@
             <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(270 12 12)" />
             <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(315 12 12)" />
         </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
                 d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z" />
         </svg>

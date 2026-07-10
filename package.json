@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite"
+    "prerender": "node scripts/prerender.js",
+    "predev": "node scripts/prerender.js",
+    "prebuild": "node scripts/prerender.js",
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
