@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Platform Case Study | Andrei Tolstykh</title>
+    <meta name="description" content="How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees: data-driven UX research, information architecture, design system and mobile rollout.">
+    <link rel="canonical" href="https://andreiddls.github.io/about-me/sc_platform.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cost Platform Case Study | Andrei Tolstykh">
+    <meta property="og:description" content="Replacing SAP Fiori with a custom ReactJS platform for 20,000+ bank employees, told step by step from problem to outcome.">
+    <meta property="og:url" content="https://andreiddls.github.io/about-me/sc_platform.html">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Cost Platform Case Study",
+      "description": "How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees.",
+      "url": "https://andreiddls.github.io/about-me/sc_platform.html",
+      "author": {
+        "@type": "Person",
+        "name": "Andrei Tolstykh",
+        "jobTitle": "Senior Product Designer",
+        "url": "https://andreiddls.github.io/about-me/"
+      }
+    }
+    </script>
+    <style>
+        .case-study-hero { margin-bottom: var(--space-6); }
+        .case-study-hero .hero-eyebrow { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: var(--space-2); }
+        .case-study-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: var(--space-2); color: var(--text-primary); line-height: 1.2; }
+        .case-study-hero p { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .case-steps { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
+
+        .step-header { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-3); }
+        .step-number { flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: var(--accent-blue-light); color: var(--accent-blue); font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+        .step-heading { min-width: 0; }
+        .step-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
+        .step-date, .step-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; }
+        .step-date { color: var(--text-tertiary); background: var(--bg-inset); }
+        .step-role { color: var(--accent-blue); background: var(--accent-blue-light); }
+
+        .cs-bullets { margin: 0 0 var(--space-4); padding-left: 1.1rem; }
+        .cs-bullets li { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-2); }
+
+        .cs-image-container {
+            width: 100%; height: 100%; border-radius: var(--radius-md); overflow: hidden;
+            margin-top: var(--space-4);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-md);
+            background: var(--bg-tile);
+        }
+        .cs-image-container img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; }
+
+        .cs-bare-image { display: block; width: 100%; height: auto; margin-top: var(--space-4); }
+
+        .cs-mobile-shot { height: 340px; display: flex; align-items: center; justify-content: center; }
+        .cs-mobile-shot img { width: auto; height: 100%; max-width: 100%; object-fit: contain; }
+        @media (max-width: 640px) { .cs-mobile-shot { height: 280px; } }
+
+        .cs-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+        .cs-grid-2 > div { display: flex; flex-direction: column; }
+        .cs-grid-2 .cs-image-container { flex: 1; margin-top: var(--space-3); }
+        @media (max-width: 640px) { .cs-grid-2 { grid-template-columns: 1fr; } }
+
+        .cs-section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0; color: var(--text-primary); }
+        .cs-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); }
+        .cs-text strong { font-weight: 700; color: var(--text-primary); background: var(--accent-blue-light); border-radius: 4px; padding: 0.05em 0.35em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+        .col-right { position: sticky; top: var(--space-6); height: fit-content; }
+
+        .btn-back { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: var(--space-2) 0; transition: color var(--transition-fast); margin-bottom: var(--space-4); }
+        .btn-back:hover { color: var(--accent-blue); }
+        .btn-back svg { width: 1.2rem; height: 1.2rem; }
+
+        @media (max-width: 640px) {
+            .step-number { width: 1.875rem; height: 1.875rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <main class="bento-layout">
+
+            <!-- LEFT COLUMN (70%) -->
+            <div class="col-left">
+                <a href="index.html" class="btn-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Portfolio
+                </a>
+
+                <!-- PRERENDER_HERO -->
+                <!-- /PRERENDER_HERO -->
+
+                <ol class="case-steps" aria-label="Case study steps">
+                <!-- PRERENDER_STEPS -->
+                <!-- /PRERENDER_STEPS -->
+                </ol>
+            </div>
+
+            <!-- RIGHT COLUMN (30%) - Sticky -->
+            <div class="col-right">
+                <article class="glass-panel animate-on-scroll">
+                    <h2 class="glass-title">Project Info</h2>
+                    <div id="project-info">
+                        <!-- PRERENDER_PROJECT_INFO -->
+                        <!-- /PRERENDER_PROJECT_INFO -->
+                    </div>
+                </article>
+
+                <article class="glass-panel animate-on-scroll">
+                    <h2 class="glass-title">Key Achievements</h2>
+                    <div id="key-achievements">
+                        <!-- PRERENDER_KEY_ACHIEVEMENTS -->
+                        <!-- /PRERENDER_KEY_ACHIEVEMENTS -->
+                    </div>
+                </article>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <circle cx="12" cy="12" r="5" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(45 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(90 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(135 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(180 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(225 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(270 12 12)" />
+            <rect x="11" y="1.5" width="2" height="3.5" rx="1" transform="rotate(315 12 12)" />
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+        </svg>
+    </button>
+
+    <script type="module" src="/js/main.js"></script>
+    <script type="module">
+        import scPlatformData from './data/sc-platform-data.json';
+        import { renderFinalScores } from './js/FinalScoreCharts.jsx';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFinalScores('final-score-nps', 'final-score-mau', scPlatformData.finalScoreCharts);
+        });
+    </script>
+</body>
+</html>

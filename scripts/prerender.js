@@ -4,6 +4,8 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/cv-data.json'), 'utf8'));
 const template = fs.readFileSync(path.join(root, 'index.template.html'), 'utf8');
+const scData = JSON.parse(fs.readFileSync(path.join(root, 'data/sc-platform-data.json'), 'utf8'));
+const scTemplate = fs.readFileSync(path.join(root, 'sc_platform.template.html'), 'utf8');
 
 const SKILL_CATEGORIES = [
   { key: 'product', label: 'Product Design' },
@@ -230,3 +232,209 @@ output = replaceBlock(output, 'LANGUAGES', renderLanguages());
 
 fs.writeFileSync(path.join(root, 'index.html'), output);
 console.log('Prerendered index.html from cv-data.json');
+
+// ── Cost Platform case study ──────────────────────────────────────────
+
+function renderScHero() {
+  const hero = scData.hero;
+  return `                <div class="case-study-hero">
+                    <span class="hero-eyebrow">${escapeHtml(hero.eyebrow)}</span>
+                    <h1>${escapeHtml(hero.title)}</h1>
+                    <p>${escapeHtml(hero.description)}</p>
+                </div>`;
+}
+
+function renderStepHeaderHtml(step) {
+  const metaHtml = [
+    step.dateRange ? `<span class="step-date">${escapeHtml(step.dateRange)}</span>` : '',
+    step.role ? `<span class="step-role">${escapeHtml(step.role)}</span>` : '',
+  ].join('');
+
+  return `                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">${escapeHtml(step.number)}</span>
+                    <div class="step-heading">
+                        ${metaHtml ? `<div class="step-meta">${metaHtml}</div>` : ''}
+                        <h2 class="cs-section-title" id="step-${escapeHtml(step.id)}-title">${escapeHtml(step.title)}</h2>
+                    </div>
+                </div>`;
+}
+
+function renderParagraphs(paragraphs) {
+  return (paragraphs || []).map((p) => `                <p class="cs-text">${p}</p>`).join('\n');
+}
+
+function renderBullets(bullets) {
+  if (!bullets?.length) return '';
+  return `                <ul class="cs-bullets">
+${bullets.map((b) => `                    <li>${b}</li>`).join('\n')}
+                </ul>`;
+}
+
+function renderScImage(img) {
+  if (!img) return '';
+  const style = [];
+  if (img.maxHeight) style.push(`max-height: ${escapeHtml(img.maxHeight)}`);
+  if (img.marginAuto) style.push('margin: 0 auto');
+  const bg = img.background ? `background: ${escapeHtml(img.background)};` : '';
+  const padding = img.padding ? 'padding: var(--space-4);' : '';
+
+  return `                <div class="cs-image-container" style="${bg}${padding}">
+                    <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}" loading="lazy"${style.length ? ` style="${style.join('; ')}"` : ''}>
+                </div>`;
+}
+
+function renderStepShell(step, innerHtml) {
+  return `                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-${escapeHtml(step.id)}" aria-labelledby="step-${escapeHtml(step.id)}-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+${renderStepHeaderHtml(step)}
+${innerHtml}
+                    </div>
+                </article>
+                </li>`;
+}
+
+function renderProblemStep(step) {
+  const ba = step.beforeAfter;
+  const inner = `${renderParagraphs(step.paragraphs)}
+                <div class="cs-grid-2">
+                    <div>
+                        <h3 style="font-size: 0.85rem; color: var(--text-tertiary); text-transform: uppercase;">${escapeHtml(ba.beforeLabel)}</h3>
+                        <div class="cs-image-container">
+                            <img src="${escapeHtml(ba.beforeImage)}" alt="${escapeHtml(ba.beforeLabel)}" loading="lazy">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 0.85rem; color: var(--text-tertiary); text-transform: uppercase;">${escapeHtml(ba.afterLabel)}</h3>
+                        <div class="cs-image-container" style="background: var(--accent-blue);">
+                            <img src="${escapeHtml(ba.afterImage)}" alt="${escapeHtml(ba.afterLabel)}" loading="lazy">
+                        </div>
+                    </div>
+                </div>`;
+  return renderStepShell(step, inner);
+}
+
+function renderDefaultStep(step) {
+  const inner = `${renderParagraphs(step.paragraphs)}
+${renderBullets(step.bullets)}
+${(step.images || []).map(renderScImage).join('\n')}`;
+  return renderStepShell(step, inner);
+}
+
+function renderUxResearchStep(step) {
+  const inner = `${renderParagraphs(step.paragraphs)}
+${renderBullets(step.bullets)}
+${renderParagraphs(step.paragraphsAfter)}
+${(step.images || []).map(renderScImage).join('\n')}`;
+  return renderStepShell(step, inner);
+}
+
+function renderWireframingStep(step) {
+  const gridImages = step.images.filter((i) => i.gridPosition);
+  const otherImages = step.images.filter((i) => !i.gridPosition);
+
+  const inner = `${renderParagraphs(step.paragraphs)}
+                <div class="cs-grid-2" style="margin-bottom: var(--space-4);">
+${gridImages.map((img) => `                    <div class="cs-image-container" style="margin-top: 0;">
+                        <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}" loading="lazy">
+                    </div>`).join('\n')}
+                </div>
+${otherImages.map(renderScImage).join('\n')}`;
+  return renderStepShell(step, inner);
+}
+
+function renderDesignSystemStep(step) {
+  const inner = `${renderParagraphs(step.paragraphs)}
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-2); color: var(--text-primary);">${escapeHtml(step.gridTitle)}</h3>
+                <div class="cs-image-container" style="margin-bottom: var(--space-4);">
+                    <img src="${escapeHtml(step.gridMain.src)}" alt="${escapeHtml(step.gridMain.alt)}" loading="lazy">
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2);">
+${step.gridItems.map((img) => `                    <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--glass-border);" loading="lazy">`).join('\n')}
+                </div>`;
+  return renderStepShell(step, inner);
+}
+
+function renderResponsiveStep(step) {
+  const inner = `${renderParagraphs(step.paragraphs)}
+                <div class="cs-grid-2">
+${step.images.map((img) => `                    <div class="cs-image-container cs-mobile-shot"${img.background ? ` style="background: ${escapeHtml(img.background)};"` : ''}>
+                        <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}" loading="lazy">
+                    </div>`).join('\n')}
+                </div>`;
+  return renderStepShell(step, inner);
+}
+
+function renderFinalResultStep(step) {
+  const inner = `${renderParagraphs(step.paragraphs)}
+                <div class="cs-grid-2" style="margin-bottom: var(--space-4);">
+${step.metrics.map((m) => `                    <div style="background: var(--bg-tile); padding: var(--space-4); border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3rem; font-weight: 800; color: ${m.color === 'blue' ? 'var(--accent-blue)' : 'var(--accent-green)'}; line-height: 1;">${escapeHtml(m.value)}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-3); font-weight: 500;">${escapeHtml(m.label)}</div>
+                        ${m.chartId ? `<div id="${escapeHtml(m.chartId)}" style="width: 100%; height: 180px; margin-top: var(--space-3);"></div>` : ''}
+                    </div>`).join('\n')}
+                </div>
+                <img class="cs-bare-image" src="${escapeHtml(step.mockupImage.src)}" alt="${escapeHtml(step.mockupImage.alt)}" loading="lazy">`;
+  return renderStepShell(step, inner).replace(
+    '<div class="tile-content">',
+    '<div class="tile-content" style="background: linear-gradient(135deg, var(--bg-tile) 0%, var(--bg-inset) 100%);">'
+  );
+}
+
+const SC_STEP_RENDERERS = {
+  problem: renderProblemStep,
+  'ux-research': renderUxResearchStep,
+  wireframing: renderWireframingStep,
+  'design-system': renderDesignSystemStep,
+  responsive: renderResponsiveStep,
+  'final-result': renderFinalResultStep,
+};
+
+function renderScSteps() {
+  return scData.steps
+    .map((step) => (SC_STEP_RENDERERS[step.id] || renderDefaultStep)(step))
+    .join('\n');
+}
+
+function renderScProjectInfoField(field) {
+  if (!field) return '';
+  return `                <div>
+                    <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 2px;">${escapeHtml(field.label)}</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">${escapeHtml(field.value)}</div>
+                </div>`;
+}
+
+function renderScProjectInfo() {
+  const info = scData.projectInfo;
+  return `                <div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
+${renderScProjectInfoField(info.role)}
+${renderScProjectInfoField(info.timeline)}
+${renderScProjectInfoField(info.team)}
+                    <div>
+                        <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: var(--space-2);">${escapeHtml(info.stack.label)}</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: var(--space-1);">
+${info.stack.items.map((t) => `                            <span class="project-tag">${escapeHtml(t)}</span>`).join('\n')}
+                        </div>
+                    </div>
+                </div>`;
+}
+
+function renderScKeyAchievements() {
+  return `                <div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
+${scData.keyAchievements.map((ach) => `                    <div style="display: flex; align-items: flex-start; gap: var(--space-2);">
+                        <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${escapeHtml(ach)}</div>
+                    </div>`).join('\n')}
+                </div>`;
+}
+
+let scOutput = scTemplate;
+scOutput = replaceBlock(scOutput, 'HERO', renderScHero());
+scOutput = replaceBlock(scOutput, 'STEPS', renderScSteps());
+scOutput = replaceBlock(scOutput, 'PROJECT_INFO', renderScProjectInfo());
+scOutput = replaceBlock(scOutput, 'KEY_ACHIEVEMENTS', renderScKeyAchievements());
+
+fs.writeFileSync(path.join(root, 'sc_platform.html'), scOutput);
+console.log('Prerendered sc_platform.html from sc-platform-data.json');

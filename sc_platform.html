@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SC Platform Case Study — Andrei Tolstykh</title>
-    <meta name="description" content="Case study: Cost Platform. Replacing SAP Fiori for 20K+ users.">
+    <title>Cost Platform Case Study | Andrei Tolstykh</title>
+    <meta name="description" content="How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees: data-driven UX research, information architecture, design system and mobile rollout.">
+    <link rel="canonical" href="https://andreiddls.github.io/about-me/sc_platform.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cost Platform Case Study | Andrei Tolstykh">
+    <meta property="og:description" content="Replacing SAP Fiori with a custom ReactJS platform for 20,000+ bank employees, told step by step from problem to outcome.">
+    <meta property="og:url" content="https://andreiddls.github.io/about-me/sc_platform.html">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Cost Platform Case Study",
+      "description": "How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees.",
+      "url": "https://andreiddls.github.io/about-me/sc_platform.html",
+      "author": {
+        "@type": "Person",
+        "name": "Andrei Tolstykh",
+        "jobTitle": "Senior Product Designer",
+        "url": "https://andreiddls.github.io/about-me/"
+      }
+    }
+    </script>
     <style>
-        .case-study-hero { margin-bottom: var(--space-4); }
+        .case-study-hero { margin-bottom: var(--space-6); }
+        .case-study-hero .hero-eyebrow { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: var(--space-2); }
         .case-study-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: var(--space-2); color: var(--text-primary); line-height: 1.2; }
         .case-study-hero p { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .case-steps { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
+
+        .step-header { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-3); }
+        .step-number { flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-sm); background: var(--accent-blue-light); color: var(--accent-blue); font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+        .step-heading { min-width: 0; }
+        .step-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
+        .step-date, .step-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; }
+        .step-date { color: var(--text-tertiary); background: var(--bg-inset); }
+        .step-role { color: var(--accent-blue); background: var(--accent-blue-light); }
+
+        .cs-bullets { margin: 0 0 var(--space-4); padding-left: 1.1rem; }
+        .cs-bullets li { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-2); }
 
         .cs-image-container {
             width: 100%; height: 100%; border-radius: var(--radius-md); overflow: hidden;
@@ -24,19 +60,30 @@
         }
         .cs-image-container img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; }
 
+        .cs-bare-image { display: block; width: 100%; height: auto; margin-top: var(--space-4); }
+
+        .cs-mobile-shot { height: 340px; display: flex; align-items: center; justify-content: center; }
+        .cs-mobile-shot img { width: auto; height: 100%; max-width: 100%; object-fit: contain; }
+        @media (max-width: 640px) { .cs-mobile-shot { height: 280px; } }
+
         .cs-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
         .cs-grid-2 > div { display: flex; flex-direction: column; }
         .cs-grid-2 .cs-image-container { flex: 1; margin-top: var(--space-3); }
         @media (max-width: 640px) { .cs-grid-2 { grid-template-columns: 1fr; } }
 
-        .cs-section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-3); color: var(--text-primary); }
+        .cs-section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0; color: var(--text-primary); }
         .cs-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); }
+        .cs-text strong { font-weight: 700; color: var(--text-primary); background: var(--accent-blue-light); border-radius: 4px; padding: 0.05em 0.35em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 
         .col-right { position: sticky; top: var(--space-6); height: fit-content; }
 
         .btn-back { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: var(--space-2) 0; transition: color var(--transition-fast); margin-bottom: var(--space-4); }
         .btn-back:hover { color: var(--accent-blue); }
         .btn-back svg { width: 1.2rem; height: 1.2rem; }
+
+        @media (max-width: 640px) {
+            .step-number { width: 1.875rem; height: 1.875rem; font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
@@ -50,9 +97,207 @@
                     Back to Portfolio
                 </a>
 
-                <div id="case-study-content">
-                    <!-- Populated via JS -->
+                <!-- PRERENDER_HERO -->
+                <div class="case-study-hero">
+                    <span class="hero-eyebrow">2020 · Enterprise Fintech Platform</span>
+                    <h1>Cost Platform</h1>
+                    <p>The story of replacing SAP Fiori with a custom ReactJS platform for 20,000+ bank employees, told step by step, from the original problem to my role at each stage.</p>
                 </div>
+                <!-- /PRERENDER_HERO -->
+
+                <ol class="case-steps" aria-label="Case study steps">
+                <!-- PRERENDER_STEPS -->
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-problem" aria-labelledby="step-problem-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">01</span>
+                    <div class="step-heading">
+                        <div class="step-meta"><span class="step-date">2018-2020</span></div>
+                        <h2 class="cs-section-title" id="step-problem-title">The Legacy Problem</h2>
+                    </div>
+                </div>
+                <p class="cs-text">The bank layered <strong>SAP Fiori</strong> (a role-based tile launchpad) on top of the existing SAP GUI backend to modernize a decades-old transaction system. In practice it introduced new problems: the interface was slow and froze under load, it was hard to customize, and because the tile set was generated straight from a user's SAP role, people ended up with dozens of irrelevant tiles and no easy way to find what they actually needed.</p>
+                <p class="cs-text">On top of that, every incremental feature required specialist SAP consultants and a real budget. Small changes were slow and expensive.</p>
+                <div class="cs-grid-2">
+                    <div>
+                        <h3 style="font-size: 0.85rem; color: var(--text-tertiary); text-transform: uppercase;">Before: SAP Fiori</h3>
+                        <div class="cs-image-container">
+                            <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__before.jpeg" alt="Before: SAP Fiori" loading="lazy">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 0.85rem; color: var(--text-tertiary); text-transform: uppercase;">After: Cost Platform (ReactJS)</h3>
+                        <div class="cs-image-container" style="background: var(--accent-blue);">
+                            <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__after.png" alt="After: Cost Platform (ReactJS)" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-ux-research" aria-labelledby="step-ux-research-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">02</span>
+                    <div class="step-heading">
+                        <div class="step-meta"><span class="step-role">My role: UX Researcher</span></div>
+                        <h2 class="cs-section-title" id="step-ux-research-title">Data-Driven UX Research</h2>
+                    </div>
+                </div>
+                <p class="cs-text">Every six months I ran a company-wide Voice-of-the-Customer survey to track satisfaction across internal tools, from performance to interface clarity. 1.5 years after the Fiori rollout, that same recurring process is what flagged it as the problem: scores were low across almost every dimension we measured.</p>
+                <ul class="cs-bullets">
+                    <li>Exported SAP usage logs and kept only active users, filtered by hours logged and actions taken</li>
+                    <li>Segmented that group by role, then by module</li>
+                    <li>Invited each segment to a survey and grouped responses by department, region, role and function</li>
+                    <li>Scored results with a Top-2 / Bottom-2 box method to surface the sharpest pain points</li>
+                    <li>Published a report with scores on one tab and verbatim user pain points on the second</li>
+                </ul>
+                <p class="cs-text">The output fed a rolling roadmap: priorities for the next six months, then the following year, repeated every cycle.</p>
+                <div class="cs-image-container" style="">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__nps.png" alt="Top-2 / Bottom-2 survey trend" loading="lazy">
+                </div>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-platform-decision" aria-labelledby="step-platform-decision-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">03</span>
+                    <div class="step-heading">
+                        
+                        <h2 class="cs-section-title" id="step-platform-decision-title">The Decision: A Custom ReactJS Platform</h2>
+                    </div>
+                </div>
+                <p class="cs-text">Rather than keep patching Fiori, leadership decided to replace it with a custom shell built on the ReactJS stack. This was my first large-scale project: a small cross-functional team was staffed: one React engineer, a backend engineer, several analysts, a product owner, and me as the designer.</p>
+
+
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-architecture" aria-labelledby="step-architecture-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">04</span>
+                    <div class="step-heading">
+                        <div class="step-meta"><span class="step-role">My role: Product Designer</span></div>
+                        <h2 class="cs-section-title" id="step-architecture-title">Information Architecture</h2>
+                    </div>
+                </div>
+                <p class="cs-text">My job was to make navigation effortless and the platform easy to extend. The requirement on paper was Web-only, but I designed the structure to survive a future move to mobile: <strong>Department → Module → links to the underlying systems</strong>, grouped by function, everything anchored to a fixed center column to cut cognitive load and keep focus on one task at a time.</p>
+                <p class="cs-text">Before this platform, next to Fiori there were more than a dozen narrow, purpose-built internal tools. The plan was to turn this into a single marketplace-style entry point for every financial department: new products built natively in this shell, older tools migrated in over time. The home screen stayed to the essentials: financial news, a calendar, notifications.</p>
+                <ul class="cs-bullets">
+                    <li>Hard constraint: the platform could not resemble the bank's two other major internal systems (HR and Service Requests). It needed its own visual identity</li>
+                </ul>
+                <div class="cs-image-container" style="background: #fafafa;padding: var(--space-4);">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__sc-platform-pic.svg" alt="Platform information architecture: departments, modules and linked systems" loading="lazy">
+                </div>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-wireframing" aria-labelledby="step-wireframing-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">05</span>
+                    <div class="step-heading">
+                        
+                        <h2 class="cs-section-title" id="step-wireframing-title">Wireframing &amp; Prototyping</h2>
+                    </div>
+                </div>
+                <p class="cs-text">I prototyped the new structure in Figma, drawing on patterns that already worked elsewhere in the bank: clean layouts from HR-style systems, category navigation from support portals, and card views familiar to Fiori users.</p>
+                <p class="cs-text">I tested the light-theme prototype with a control group of users and used their feedback to tighten information density and spacing for smaller desktop screens.</p>
+                <div class="cs-grid-2" style="margin-bottom: var(--space-4);">
+                    <div class="cs-image-container" style="margin-top: 0;">
+                        <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__wireframe.png" alt="Wireframe" loading="lazy">
+                    </div>
+                    <div class="cs-image-container" style="margin-top: 0;">
+                        <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__prototype.jpg" alt="Prototype" loading="lazy">
+                    </div>
+                </div>
+
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-design-system" aria-labelledby="step-design-system-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">06</span>
+                    <div class="step-heading">
+                        
+                        <h2 class="cs-section-title" id="step-design-system-title">Design System &amp; Grids</h2>
+                    </div>
+                </div>
+                <p class="cs-text">As the sole designer on the project, I built a design system (grid, components, color tokens) so the development team could ship new services without waiting on design each time.</p>
+                <p class="cs-text">Accessibility was a priority: I derived three adaptive shades from the brand color to keep contrast within WCAG guidelines, and we used CSS linting to keep the implementation consistent with the design files. Six months after kickoff, the first live products launched on the platform.</p>
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-2); color: var(--text-primary);">Grid Variations</h3>
+                <div class="cs-image-container" style="margin-bottom: var(--space-4);">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__cp-main-grid.png" alt="Main Grid System" loading="lazy">
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2);">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__grid_left-menu.png" alt="Left Menu Grid" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--glass-border);" loading="lazy">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__grid_calendar.png" alt="Calendar Grid" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--glass-border);" loading="lazy">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__grid_counter.png" alt="Counter Grid" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--glass-border);" loading="lazy">
+                    <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__grid_favorites.png" alt="Favorites Grid" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--glass-border);" loading="lazy">
+                </div>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-responsive" aria-labelledby="step-responsive-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">07</span>
+                    <div class="step-heading">
+                        
+                        <h2 class="cs-section-title" id="step-responsive-title">Scaling to Mobile</h2>
+                    </div>
+                </div>
+                <p class="cs-text">The desktop web release shipped in 2021, since the core services lived on the internal domain, but the block-based layout was built to extend without a redesign. In the stages that followed, more departments and services were onboarded, several of the old narrow tools were retired in favor of the platform, and native mobile apps followed the same information architecture in both Light and Dark themes.</p>
+                <div class="cs-grid-2">
+                    <div class="cs-image-container cs-mobile-shot">
+                        <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__mobile_light.png" alt="Mobile App Light Theme" loading="lazy">
+                    </div>
+                    <div class="cs-image-container cs-mobile-shot" style="background: #111;">
+                        <img src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__mobile_dark.png" alt="Mobile App Dark Theme" loading="lazy">
+                    </div>
+                </div>
+                    </div>
+                </article>
+                </li>
+                <li>
+                <article class="bento-tile step-tile animate-on-scroll" id="step-final-result" aria-labelledby="step-final-result-title" style="margin-bottom: var(--space-4);">
+                    <div class="tile-content" style="background: linear-gradient(135deg, var(--bg-tile) 0%, var(--bg-inset) 100%);">
+                <div class="step-header">
+                    <span class="step-number" aria-hidden="true">08</span>
+                    <div class="step-heading">
+                        
+                        <h2 class="cs-section-title" id="step-final-result-title">Outcome &amp; Impact</h2>
+                    </div>
+                </div>
+                <p class="cs-text">The platform launched to production within six months of kickoff. The next Voice-of-the-Customer cycle after launch showed satisfaction climbing well past the original baseline, alongside strong adoption across the bank.</p>
+                <div class="cs-grid-2" style="margin-bottom: var(--space-4);">
+                    <div style="background: var(--bg-tile); padding: var(--space-4); border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--accent-blue); line-height: 1;">80%</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-3); font-weight: 500;">Workflow Efficiency</div>
+                        <div id="final-score-nps" style="width: 100%; height: 180px; margin-top: var(--space-3);"></div>
+                    </div>
+                    <div style="background: var(--bg-tile); padding: var(--space-4); border-radius: var(--radius-md); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--accent-green); line-height: 1;">20K+</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-3); font-weight: 500;">Monthly Active Users</div>
+                        <div id="final-score-mau" style="width: 100%; height: 180px; margin-top: var(--space-3);"></div>
+                    </div>
+                </div>
+                <img class="cs-bare-image" src="https://gelserkirchen.github.io/CV_Tolstykh/images/__image__mockup_pic.png" alt="Final Mockup" loading="lazy">
+                    </div>
+                </article>
+                </li>
+                <!-- /PRERENDER_STEPS -->
+                </ol>
             </div>
 
             <!-- RIGHT COLUMN (30%) - Sticky -->
@@ -60,14 +305,58 @@
                 <article class="glass-panel animate-on-scroll">
                     <h2 class="glass-title">Project Info</h2>
                     <div id="project-info">
-                        <!-- Populated via JS -->
+                        <!-- PRERENDER_PROJECT_INFO -->
+                <div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div>
+                    <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 2px;">Role</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Lead Product Designer</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 2px;">Timeline</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">2020-2021+ (6-month build, ongoing rollout)</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 2px;">Team</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">1 PO, 1 React Developer, Backend, Several Analysts</div>
+                </div>
+                    <div>
+                        <div style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: var(--space-2);">Stack &amp; Tools</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: var(--space-1);">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">ReactJS</span>
+                            <span class="project-tag">Material Design</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /PRERENDER_PROJECT_INFO -->
                     </div>
                 </article>
 
                 <article class="glass-panel animate-on-scroll">
                     <h2 class="glass-title">Key Achievements</h2>
                     <div id="key-achievements">
-                        <!-- Populated via JS -->
+                        <!-- PRERENDER_KEY_ACHIEVEMENTS -->
+                <div class="inner-card" style="display: flex; flex-direction: column; gap: var(--space-3);">
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-2);">
+                        <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Consolidated 100+ legacy services into one platform, replacing SAP Fiori for 20K+ users.</div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-2);">
+                        <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Designed a Department → Module IA that scaled from web to native mobile without a redesign.</div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: var(--space-2);">
+                        <svg class="achievement-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Built the UI kit and design system from scratch as the project's sole designer.</div>
+                    </div>
+                </div>
+                <!-- /PRERENDER_KEY_ACHIEVEMENTS -->
                     </div>
                 </article>
             </div>
@@ -93,31 +382,13 @@
         </svg>
     </button>
 
+    <script type="module" src="/js/main.js"></script>
     <script type="module">
         import scPlatformData from './data/sc-platform-data.json';
-        import { renderCaseStudy, renderProjectInfo, renderKeyAchievements } from './js/main.js';
         import { renderFinalScores } from './js/FinalScoreCharts.jsx';
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderCaseStudy(scPlatformData);
-            renderProjectInfo(scPlatformData);
-            renderKeyAchievements(scPlatformData);
             renderFinalScores('final-score-nps', 'final-score-mau', scPlatformData.finalScoreCharts);
-
-            // Scroll animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '0px', threshold: 0.1 });
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-
         });
     </script>
 </body>

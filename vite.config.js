@@ -23,11 +23,15 @@ function prerenderPlugin() {
       runPrerender();
       server.watcher.add(path.join(__dirname, 'data/cv-data.json'));
       server.watcher.add(path.join(__dirname, 'index.template.html'));
+      server.watcher.add(path.join(__dirname, 'data/sc-platform-data.json'));
+      server.watcher.add(path.join(__dirname, 'sc_platform.template.html'));
       server.watcher.add(path.join(__dirname, 'scripts/prerender.js'));
       server.watcher.on('change', (file) => {
         if (
           file.endsWith('cv-data.json') ||
           file.endsWith('index.template.html') ||
+          file.endsWith('sc-platform-data.json') ||
+          file.endsWith('sc_platform.template.html') ||
           file.endsWith('prerender.js')
         ) {
           runPrerender();

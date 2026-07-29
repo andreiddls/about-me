@@ -1,41 +1,80 @@
 {
+  "meta": {
+    "title": "Cost Platform Case Study | Andrei Tolstykh",
+    "description": "How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees: data-driven UX research, information architecture, design system and mobile rollout.",
+    "canonical": "https://andreiddls.github.io/about-me/sc_platform.html"
+  },
   "hero": {
+    "eyebrow": "2020 · Enterprise Fintech Platform",
     "title": "Cost Platform",
-    "description": "Consolidated 100+ fragmented financial services into a single, unified ReactJS platform for 20K+ internal users, replacing legacy SAP Fiori within a 6-month timeframe."
+    "description": "The story of replacing SAP Fiori with a custom ReactJS platform for 20,000+ bank employees, told step by step, from the original problem to my role at each stage."
   },
-  "beforeAfter": {
-    "beforeLabel": "Before (SAP Fiori)",
-    "beforeImage": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__before.jpeg",
-    "afterLabel": "After (ReactJS)",
-    "afterImage": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__after.png"
-  },
-  "sections": [
+  "steps": [
+    {
+      "id": "problem",
+      "number": "01",
+      "title": "The Legacy Problem",
+      "dateRange": "2018-2020",
+      "paragraphs": [
+        "The bank layered <strong>SAP Fiori</strong> (a role-based tile launchpad) on top of the existing SAP GUI backend to modernize a decades-old transaction system. In practice it introduced new problems: the interface was slow and froze under load, it was hard to customize, and because the tile set was generated straight from a user's SAP role, people ended up with dozens of irrelevant tiles and no easy way to find what they actually needed.",
+        "On top of that, every incremental feature required specialist SAP consultants and a real budget. Small changes were slow and expensive."
+      ],
+      "beforeAfter": {
+        "beforeLabel": "Before: SAP Fiori",
+        "beforeImage": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__before.jpeg",
+        "afterLabel": "After: Cost Platform (ReactJS)",
+        "afterImage": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__after.png"
+      }
+    },
     {
       "id": "ux-research",
-      "icon": "https://gelserkirchen.github.io/CV_Tolstykh/images/__icon__ux.svg",
-      "title": "UX Research & Discovery",
+      "number": "02",
+      "title": "Data-Driven UX Research",
+      "role": "My role: UX Researcher",
       "paragraphs": [
-        "The project initiated with comprehensive user research. Over a two-year period, we gathered more than <strong>2,000 feedback submissions</strong> through biannual surveys. Users consistently reported low satisfaction with the legacy SAP Fiori tiled interface, noting that substantial time was lost searching for the correct financial services.",
-        "Our baseline metrics highlighted critical usability challenges: a user satisfaction score (Top-2) of 54% (against an 80% target) and a bottom-2 dissatisfaction rate of 25% (target 5%). The directive was clear: unify these fragmented workflows into a cohesive ReactJS platform."
+        "Every six months I ran a company-wide Voice-of-the-Customer survey to track satisfaction across internal tools, from performance to interface clarity. 1.5 years after the Fiori rollout, that same recurring process is what flagged it as the problem: scores were low across almost every dimension we measured."
+      ],
+      "bullets": [
+        "Exported SAP usage logs and kept only active users, filtered by hours logged and actions taken",
+        "Segmented that group by role, then by module",
+        "Invited each segment to a survey and grouped responses by department, region, role and function",
+        "Scored results with a Top-2 / Bottom-2 box method to surface the sharpest pain points",
+        "Published a report with scores on one tab and verbatim user pain points on the second"
+      ],
+      "paragraphsAfter": [
+        "The output fed a rolling roadmap: priorities for the next six months, then the following year, repeated every cycle."
       ],
       "images": [
         {
           "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__nps.png",
-          "alt": "NPS and Feedback Analysis"
+          "alt": "Top-2 / Bottom-2 survey trend"
         }
       ]
     },
     {
-      "id": "architecture",
-      "title": "Architecture & Navigation Complexity",
+      "id": "platform-decision",
+      "number": "03",
+      "title": "The Decision: A Custom ReactJS Platform",
       "paragraphs": [
-        "A primary challenge was consolidating over <strong>100 distinct financial services</strong>—each featuring its own disparate system architecture—into a single platform. We collaborated closely with business analysts to design a robust role-based access model, ensuring users only saw services relevant to their specific permissions.",
-        "To prevent cognitive overload, we restricted the navigation structure to a maximum of two nesting levels, successfully categorizing the 100+ services into 10 logical, intuitive groups."
+        "Rather than keep patching Fiori, leadership decided to replace it with a custom shell built on the ReactJS stack. This was my first large-scale project: a small cross-functional team was staffed: one React engineer, a backend engineer, several analysts, a product owner, and me as the designer."
+      ]
+    },
+    {
+      "id": "architecture",
+      "number": "04",
+      "title": "Information Architecture",
+      "role": "My role: Product Designer",
+      "paragraphs": [
+        "My job was to make navigation effortless and the platform easy to extend. The requirement on paper was Web-only, but I designed the structure to survive a future move to mobile: <strong>Department → Module → links to the underlying systems</strong>, grouped by function, everything anchored to a fixed center column to cut cognitive load and keep focus on one task at a time.",
+        "Before this platform, next to Fiori there were more than a dozen narrow, purpose-built internal tools. The plan was to turn this into a single marketplace-style entry point for every financial department: new products built natively in this shell, older tools migrated in over time. The home screen stayed to the essentials: financial news, a calendar, notifications."
+      ],
+      "bullets": [
+        "Hard constraint: the platform could not resemble the bank's two other major internal systems (HR and Service Requests). It needed its own visual identity"
       ],
       "images": [
         {
           "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__sc-platform-pic.svg",
-          "alt": "Platform Architecture Scheme",
+          "alt": "Platform information architecture: departments, modules and linked systems",
           "padding": true,
           "background": "#fafafa"
         }
@@ -43,10 +82,11 @@
     },
     {
       "id": "wireframing",
+      "number": "05",
       "title": "Wireframing & Prototyping",
       "paragraphs": [
-        "Our design strategy incorporated proven patterns from industry best practices: clean layouts from modern HR systems, robust category navigation from support portals, and card-based views familiar to legacy Fiori users.",
-        "We built interactive prototypes of the light theme using Framer and tested them with a control user group. Based on their feedback, we optimized information density and layout spacing to ensure readability on smaller desktop screens."
+        "I prototyped the new structure in Figma, drawing on patterns that already worked elsewhere in the bank: clean layouts from HR-style systems, category navigation from support portals, and card views familiar to Fiori users.",
+        "I tested the light-theme prototype with a control group of users and used their feedback to tighten information density and spacing for smaller desktop screens."
       ],
       "images": [
         {
@@ -63,18 +103,11 @@
     },
     {
       "id": "design-system",
+      "number": "06",
       "title": "Design System & Grids",
       "paragraphs": [
-        "As the sole designer for a platform of this scale, I adopted <strong>Material Design</strong> with custom brand styling. This enabled the development team to build services rapidly without design bottlenecks.",
-        "Accessibility was a priority: I derived three adaptive shades from our primary brand color to ensure compliance with WCAG contrast standards. In addition, we utilized CSS linters to maintain design system and layout purity."
-      ],
-      "colorPalette": {
-        "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__color-pallette.png",
-        "alt": "Color Palette Matrix"
-      },
-      "paletteSamples": [
-        { "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__pallette_image-first.png", "alt": "Palette Adjustments" },
-        { "src": "https://gelserkirchen.github.io/CV_Tolstykh/images/__image__pallette-image-second.png", "alt": "Palette Contrast" }
+        "As the sole designer on the project, I built a design system (grid, components, color tokens) so the development team could ship new services without waiting on design each time.",
+        "Accessibility was a priority: I derived three adaptive shades from the brand color to keep contrast within WCAG guidelines, and we used CSS linting to keep the implementation consistent with the design files. Six months after kickoff, the first live products launched on the platform."
       ],
       "gridTitle": "Grid Variations",
       "gridMain": {
@@ -90,9 +123,10 @@
     },
     {
       "id": "responsive",
-      "title": "Responsive Web & Mobile Layouts",
+      "number": "07",
+      "title": "Scaling to Mobile",
       "paragraphs": [
-        "The platform was built on strict principles of responsive design using CSS Flexbox and Grid. While the initial focus was on the desktop web platform (released in 2021) as core services operated in the internal domain, we established a clear roadmap for native mobile applications in 2022. Both Light and Dark modes were fully specified."
+        "The desktop web release shipped in 2021, since the core services lived on the internal domain, but the block-based layout was built to extend without a redesign. In the stages that followed, more departments and services were onboarded, several of the old narrow tools were retired in favor of the platform, and native mobile apps followed the same information architecture in both Light and Dark themes."
       ],
       "images": [
         {
@@ -108,9 +142,10 @@
     },
     {
       "id": "final-result",
-      "title": "Final Result & Impact",
+      "number": "08",
+      "title": "Outcome & Impact",
       "paragraphs": [
-        "Within six months, we launched the platform to production. A follow-up survey of 267 pilot users revealed a significant improvement in user sentiment. Users praised the boost in operational speed, the clean interface, and the streamlined efficiency of interacting with the financial services."
+        "The platform launched to production within six months of kickoff. The next Voice-of-the-Customer cycle after launch showed satisfaction climbing well past the original baseline, alongside strong adoption across the bank."
       ],
       "metrics": [
         { "value": "80%", "label": "Workflow Efficiency", "color": "blue", "chartId": "final-score-nps" },
@@ -123,18 +158,18 @@
     }
   ],
   "projectInfo": {
-    "role": { "label": "Role", "value": "Lead UX/UI Designer" },
-    "timeline": { "label": "Timeline", "value": "2020 — 2021 (6 months)" },
-    "team": { "label": "Team", "value": "1 PO, 3 Developers, 3 Analysts, 1 QA" },
+    "role": { "label": "Role", "value": "Lead Product Designer" },
+    "timeline": { "label": "Timeline", "value": "2020-2021+ (6-month build, ongoing rollout)" },
+    "team": { "label": "Team", "value": "1 PO, 1 React Developer, Backend, Several Analysts" },
     "stack": {
       "label": "Stack & Tools",
       "items": ["Figma", "ReactJS", "Material Design"]
     }
   },
   "keyAchievements": [
-    "Consolidated 100+ services into one platform.",
-    "Created a comprehensive UI Kit.",
-    "Designed a scalable navigation structure constrained to 2 levels."
+    "Consolidated 100+ legacy services into one platform, replacing SAP Fiori for 20K+ users.",
+    "Designed a Department → Module IA that scaled from web to native mobile without a redesign.",
+    "Built the UI kit and design system from scratch as the project's sole designer."
   ],
   "finalScoreCharts": {
     "nps": {

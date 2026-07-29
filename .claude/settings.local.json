@@ -18,7 +18,19 @@
       "Bash(git commit -m 'Initial commit: Portfolio site setup *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(grep -n \"\\\\-\\\\-accent-blue\\\\|\\\\-\\\\-radius-md\\\\|\\\\-\\\\-space-4\\\\|\\\\.bento-tile \\\\|\\\\.bento-tile{\\\\|\\\\.bento-tile,\\\\|\\\\.glass-panel\\\\|\\\\.project-tag\\\\|--text-tertiary\\\\|--border-color\\\\|--bg-tile\\\\|--bg-inset\\\\|:root\" /Users/andreitolstykh/Documents/GitHub/about-me/css/styles.css)",
+      "Bash(sed -n '1,211p' js/main.js)",
+      "Bash(mv /tmp/main.js.new js/main.js)",
+      "Bash(node *)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(npm ls *)",
+      "Read(//Applications/**)",
+      "Bash(npm uninstall *)",
+      "Bash(lsof -ti:5173 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(break)",
+      "Bash(git check-ignore *)"
     ]
   }
 }

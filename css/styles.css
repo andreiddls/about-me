@@ -876,7 +876,8 @@ h3 {
     font-size: 0.65rem;
     padding: 4px 10px;
     border-radius: 100px;
-    background: var(--bg-tile);
+    background: var(--bg-inset);
+    border: 1px solid var(--glass-border);
     color: var(--text-tertiary);
     font-weight: 500;
 }

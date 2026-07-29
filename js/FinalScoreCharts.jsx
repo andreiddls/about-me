@@ -94,26 +94,23 @@ function FinalScoreChart({ width, height, data, fromColor, toColor, textColor })
         })}
 
         {(() => {
-          const x1 = xScale(data[0].label) + xScale.bandwidth() / 2;
-          const y1 = innerHeight - (innerHeight - yScale(data[0].value));
-          const x2 = xScale(data[1].label);
-          const y2 = innerHeight - (innerHeight - yScale(data[1].value));
+          const bar0Right = xScale(data[0].label) + xScale.bandwidth();
+          const bar1Left = xScale(data[1].label);
+          const bar0Top = yScale(data[0].value);
+          const bar1Top = yScale(data[1].value);
 
-          const startX = x1;
-          const startY = y1 - 25;
-          const endX = x2 - 10;
-          const endY = y2 + 30;
-
-          const cpX = startX + 10;
-          const cpY = startY - 30;
+          const startX = bar0Right + 6;
+          const startY = bar0Top - 4;
+          const endX = bar1Left - 14;
+          const endY = bar1Top + 4;
 
           return (
             <Group>
               <path
-                 d={`M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`}
+                 d={`M ${startX},${startY} L ${endX},${endY}`}
                  fill="transparent"
                  stroke={textColor}
-                 strokeWidth={4}
+                 strokeWidth={3}
                  strokeLinecap="round"
                  markerEnd={`url(#arrow-${fromColor.replace('#','')})`}
               />

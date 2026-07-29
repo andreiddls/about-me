@@ -36,7 +36,7 @@
     {
       "company": "QuantPi",
       "role": "Senior Product Designer",
-      "period": "2022 — Present",
+      "period": "2022 - Present",
       "location": "Germany",
       "description": "Lead product design for an enterprise AI platform, simplifying complex evaluation workflows and data-heavy experiences. Built two large-scale design systems in Storybook and use AI-powered CLI tools to turn production components into functional, high-fidelity prototypes.",
       "highlights": [
@@ -48,7 +48,7 @@
     {
       "company": "Sberbank",
       "role": "Product Designer / Lead UI/UX",
-      "period": "2019 — 2022",
+      "period": "2019 - 2022",
       "location": "Moscow",
       "description": "Designed a large-scale enterprise FinTech platform, simplifying fragmented financial workflows across 100+ internal services. Worked end-to-end from discovery and research to responsive web and mobile delivery.",
       "highlights": [
@@ -59,17 +59,17 @@
       ]
     },
     {
-      "company": "Sberbank — ERP Center",
+      "company": "Sberbank (ERP Center)",
       "role": "Graphic Designer",
-      "period": "2016 — 2018",
+      "period": "2016 - 2018",
       "location": "Moscow",
       "description": "Promoted division products via presentations, video content, and training materials.",
       "highlights": []
     },
     {
-      "company": "Sberbank — Financial Management",
+      "company": "Sberbank (Financial Management)",
       "role": "Financier",
-      "period": "2011 — 2016",
+      "period": "2011 - 2016",
       "location": "Moscow",
       "description": "Produced and automated fiscal reporting.",
       "highlights": []
@@ -114,7 +114,7 @@
       "id": "quantpi",
       "name": "QuantPi Platform",
       "company": "QuantPi",
-      "period": "2024 — Present",
+      "period": "2024 - Present",
       "status": "Under NDA",
       "description": "Full-cycle UX/UI for an AI testing system used by 5+ Enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services.",
       "tags": [
@@ -153,7 +153,7 @@
       "id": "costplatform",
       "name": "CostPlatform",
       "company": "Sberbank",
-      "period": "2019 — 2022",
+      "period": "2019 - 2022",
       "status": "Live",
       "description": "Replaced SAP Fiori for 20K+ internal users by merging 100+ fragmented services into a single scalable product. Sole designer from discovery to release in 6 months.",
       "tags": [
@@ -184,7 +184,7 @@
     {
       "degree": "Bachelor's in Computer Science in Economics",
       "school": "University of Humanities",
-      "period": "2004 — 2009",
+      "period": "2004 - 2009",
       "note": "Recognized by Anabin"
     }
   ],
@@ -194,11 +194,11 @@
       "year": "2021"
     },
     {
-      "name": "Front-end Developer Program — Yandex",
+      "name": "Front-end Developer Program, Yandex",
       "year": "2022"
     },
     {
-      "name": "C++ Coursework — Bauman Moscow State Technical University",
+      "name": "C++ Coursework, Bauman Moscow State Technical University",
       "year": "2019"
     }
   ],
