@@ -263,7 +263,7 @@ function initTimelinePill() {
         // the last node's centre for the circle to sit fully inside the gradient.
         const nodeCenter = lastItem.offsetTop + 3.5 - 5 + 6;
         const startY = Math.max(0, firstItem.offsetTop - 4);
-        const endY = nodeCenter + 9 + 5;
+        const endY = nodeCenter + 9 + 3;
 
         pill.style.top = `${startY}px`;
         pill.style.height = `${endY - startY}px`;
