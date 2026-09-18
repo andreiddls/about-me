@@ -1752,6 +1752,20 @@ h3 {
     color: var(--text-primary);
 }
 
+.about-cv-link {
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+}
+
+.about-cv-link a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.about-cv-link a:hover {
+    text-decoration: underline;
+}
+
 /* The project title is a real link so crawlers can reach the case study */
 .project-card h3 a {
     color: inherit;

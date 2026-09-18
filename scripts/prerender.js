@@ -92,7 +92,8 @@ function renderAbout() {
     ? `                            <ul class="about-facts" aria-label="Availability">
                                 <li><strong>Work authorization:</strong> ${escapeHtml(availability.workAuthorization)}</li>
                                 <li><strong>Based in:</strong> ${escapeHtml(availability.basedIn)}</li>
-                            </ul>`
+                            </ul>
+                            <p class="about-cv-link"><a href="${escapeHtml(about.links.cvPage || 'cv.html')}">Read the full CV as a web page →</a></p>`
     : '';
 
   return `                <article class="bento-tile tile-about" data-tile="about">
@@ -120,12 +121,6 @@ function renderAbout() {
                                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                                         </svg>
                                         <span>Email</span>
-                                    </a>
-                                    <a href="${escapeHtml(about.links.cvPage || 'cv.html')}" class="link-chip">
-                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-                                        </svg>
-                                        <span>Full CV</span>
                                     </a>
                                     <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv">
                                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
