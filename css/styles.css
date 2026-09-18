@@ -1817,6 +1817,11 @@ h3 {
     z-index: 20;
 }
 
+/* the class' display would otherwise beat the UA's [hidden] rule */
+.cv-menu[hidden] {
+    display: none;
+}
+
 .cv-menu a {
     padding: var(--space-2) var(--space-3);
     border-radius: 0.6rem;
