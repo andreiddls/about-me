@@ -1,11 +1,11 @@
-# Andrei Tolstykh — Staff Product Designer & Design Technologist
+# Andrei Tolstykh · Staff Product Designer & Design Technologist
 
 > Portfolio: https://andreiddls.github.io/about-me/
 > Full CV (HTML): https://andreiddls.github.io/about-me/cv.html
 > Full CV (PDF): https://andreiddls.github.io/about-me/Andrei_Tolstykh_CV.pdf
-> Case study — CostPlatform: https://andreiddls.github.io/about-me/sc_platform.html
+> Case study · CostPlatform: https://andreiddls.github.io/about-me/sc_platform.html
 > Location: Saarbrücken, Germany
-> Work authorization: EU work permit, Germany-based — no visa sponsorship required
+> Work authorization: EU work permit, Germany-based · no visa sponsorship required
 > Email: tolstykhandrew@gmail.com
 > Phone: +49 17653480027
 > LinkedIn: https://linkedin.com/in/tolstykhaa
@@ -21,26 +21,26 @@ Lead / Staff Product Designer and Design Technologist with 9+ years of digital p
 
 ## Work Experience
 
-### Lead Product Designer / Design Strategist — QuantPi
+### Lead Product Designer / Design Strategist · QuantPi
 *Location: Saarbrücken, Germany | Period: September 2022 – Present*
 - Lead end-to-end product design, information architecture, and UX strategy for an enterprise AI testing and governance platform.
 - Architect and govern two scalable design systems in Storybook, ensuring design-token synchronization across Figma and React frontend repositories.
 - Pioneer AI-native prototyping and CLI environments (Claude Code, Codex, terminal toolchains) to pressure-test edge cases and accelerate dev handoff.
 - Facilitate customer discovery and generative research with enterprise clients to translate technical AI metrics into clear, human-centered decision flows.
 
-### Lead Product & UX Designer (Enterprise Platforms) — Sberbank (Central Finance Dept, HQ)
+### Lead Product & UX Designer (Enterprise Platforms) · Sberbank (Central Finance Dept, HQ)
 *Location: Moscow | Period: June 2018 – August 2022*
 - Directed the ground-up product design and architecture of an in-house enterprise platform created to replace standard SAP Fiori for the bank's Headquarters.
 - Engineered complex transactional workflows, data grids, and approval systems scaling to 20K+ monthly active users across 10+ multidisciplinary squads.
 - Established internal design standards and usability metrics, transforming fragmented legacy tools into modern, consumer-grade enterprise software.
 - Consolidated 100+ fragmented financial services into a single scalable product in 6 months from discovery to release.
 
-### UI/UX Designer (ERP Competence Center) — Sberbank
+### UI/UX Designer (ERP Competence Center) · Sberbank
 *Location: Yekaterinburg | Period: June 2016 – June 2018*
 - Designed UI component libraries, responsive layouts, and user workflows supporting bank-wide ERP systems transformation.
 - Created standardized visual documentation, interactive guidelines, and interface assets for cross-regional engineering and operations teams.
 
-### Economist & Financial Systems Analyst — Sberbank
+### Economist & Financial Systems Analyst · Sberbank
 *Location: Yekaterinburg | Period: January 2011 – June 2016*
 - Conducted financial forecasting, capital planning, and process analysis across enterprise banking units.
 - Personally designed and implemented automated data-aggregation models and reporting pipelines, cutting reporting delivery time by over 40%.
@@ -51,9 +51,9 @@ Lead / Staff Product Designer and Design Technologist with 9+ years of digital p
 3. **AI Hub:** Enterprise AI governance platform for evaluating LLM systems against regulatory and trust frameworks (Trust Profiles, risk matrices, automated assessment pipelines).
 
 ## Education
-- **Degree in Computer Science (C++ Programming)** — Ural Federal University, Yekaterinburg (2020)
-- **Bachelor's in Computer Science in Economics** — Ural Federal University (2004 – 2009)
-- **Specialist Degree in Applied Informatics in Economics** — Ural College of Economics and Management (2009)
+- **Degree in Computer Science (C++ Programming)**, Bauman Moscow State Technical University, Moscow (2020)
+- **Bachelor's in Computer Science in Economics**, Ural Federal University (2004 – 2009)
+- **Specialist Degree in Applied Informatics in Economics**, Ural College of Economics and Management (2009)
 
 ## Certifications
 - **Front-end Developer Program, Yandex** (2022)

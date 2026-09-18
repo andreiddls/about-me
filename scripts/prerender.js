@@ -628,9 +628,12 @@ ${job.bullets.map((b) => `                                <li>${escapeHtml(b)}</
 
   return `            <article class="bento-tile">
                 <div class="tile-content">
-                    <nav class="cv-breadcrumb" aria-label="Breadcrumb">
-                        <a href="index.html">← Portfolio</a>
-                    </nav>
+                    <div class="cv-topbar">
+                        <nav class="cv-breadcrumb" aria-label="Breadcrumb">
+                            <a href="index.html">← Portfolio</a>
+                        </nav>
+                        <a class="link-chip link-cv" href="${escapeHtml(m.cvPdf)}" target="_blank" rel="noopener">Download CV as PDF</a>
+                    </div>
                     <header class="cv-header">
                         <h1>${escapeHtml(m.name)}</h1>
                         <p class="subtitle">${escapeHtml(m.title)} · ${escapeHtml(m.location)}</p>
@@ -639,7 +642,6 @@ ${job.bullets.map((b) => `                                <li>${escapeHtml(b)}</
                             <li><strong>Based in:</strong> ${escapeHtml(cv.availability.basedIn)}</li>
                             <li><strong>Contact:</strong> <a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a> · <a href="${escapeHtml(m.linkedin)}" rel="noopener">LinkedIn</a> · <a href="${escapeHtml(m.github)}" rel="noopener">GitHub</a></li>
                         </ul>
-                        <p class="cv-actions"><a class="link-chip link-cv" href="${escapeHtml(m.cvPdf)}" target="_blank" rel="noopener">Download CV as PDF</a></p>
                     </header>
 
                     <section aria-labelledby="cv-summary-title">
@@ -696,12 +698,12 @@ console.log('Prerendered cv.html from cv-full.json');
 function renderLlmsTxt() {
   const m = cv.meta;
   const lines = [];
-  lines.push(`# ${m.name} — ${m.title}`);
+  lines.push(`# ${m.name} · ${m.title}`);
   lines.push('');
   lines.push(`> Portfolio: ${m.site}`);
   lines.push(`> Full CV (HTML): ${m.site}cv.html`);
   lines.push(`> Full CV (PDF): ${m.site}${m.cvPdf}`);
-  lines.push(`> Case study — CostPlatform: ${m.site}sc_platform.html`);
+  lines.push(`> Case study · CostPlatform: ${m.site}sc_platform.html`);
   lines.push(`> Location: ${m.location}`);
   lines.push(`> Work authorization: ${cv.availability.workAuthorization}`);
   lines.push(`> Email: ${m.email}`);
@@ -718,7 +720,7 @@ function renderLlmsTxt() {
   lines.push('## Work Experience');
   cv.experience.forEach((job) => {
     lines.push('');
-    lines.push(`### ${job.role} — ${job.company}`);
+    lines.push(`### ${job.role} · ${job.company}`);
     lines.push(`*Location: ${job.location} | Period: ${job.period}*`);
     job.bullets.forEach((b) => lines.push(`- ${b}`));
   });
@@ -729,7 +731,7 @@ function renderLlmsTxt() {
   });
   lines.push('');
   lines.push('## Education');
-  cv.education.forEach((e) => lines.push(`- **${e.degree}** — ${e.school} (${e.year})`));
+  cv.education.forEach((e) => lines.push(`- **${e.degree}**, ${e.school} (${e.year})`));
   lines.push('');
   lines.push('## Certifications');
   cv.certifications.forEach((c) => lines.push(`- **${c.name}** (${c.year})`));

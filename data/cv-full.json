@@ -11,7 +11,7 @@
     "cvPdf": "Andrei_Tolstykh_CV.pdf"
   },
   "availability": {
-    "workAuthorization": "EU work permit, Germany-based — no visa sponsorship required",
+    "workAuthorization": "EU work permit, Germany-based · no visa sponsorship required",
     "basedIn": "Saarbrücken, Germany · available for roles across the EU"
   },
   "summary": "Lead / Staff Product Designer and Design Technologist with 9+ years of digital product experience. Specializes in the intersection of UX strategy, scalable design systems, and frontend engineering for mission-critical enterprise platforms and emerging AI ecosystems. Track record includes architecting an in-house enterprise platform at Sberbank HQ replacing standard SAP Fiori for 20K+ monthly active users, and directing end-to-end product design for AI evaluation systems at QuantPi. Bridges the gap between product vision, complex business logic, and code through AI-augmented workflows (Claude Code, Codex, Storybook, React).",
@@ -93,7 +93,7 @@
   "education": [
     {
       "degree": "Degree in Computer Science (C++ Programming)",
-      "school": "Ural Federal University, Yekaterinburg",
+      "school": "Bauman Moscow State Technical University, Moscow",
       "year": "2020"
     },
     {
@@ -108,13 +108,31 @@
     }
   ],
   "certifications": [
-    { "name": "Front-end Developer Program, Yandex", "year": "2022" },
-    { "name": "Google UX Certification", "year": "2021" },
-    { "name": "C++ Coursework, Bauman Moscow State Technical University", "year": "2019" }
+    {
+      "name": "Front-end Developer Program, Yandex",
+      "year": "2022"
+    },
+    {
+      "name": "Google UX Certification",
+      "year": "2021"
+    },
+    {
+      "name": "C++ Coursework, Bauman Moscow State Technical University",
+      "year": "2019"
+    }
   ],
   "languages": [
-    { "name": "English", "level": "Fluent" },
-    { "name": "German", "level": "B1" },
-    { "name": "Russian", "level": "Native" }
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "German",
+      "level": "B1"
+    },
+    {
+      "name": "Russian",
+      "level": "Native"
+    }
   ]
 }
