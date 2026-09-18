@@ -1,0 +1,60 @@
+# Andrei Tolstykh — Staff Product Designer & Design Technologist
+
+> Portfolio & Personal Website: https://andreiddls.github.io/about-me/
+> Location: Saarbrücken, Germany
+> Email: tolstykhandrew@gmail.com
+> LinkedIn: https://linkedin.com/in/tolstykhaa
+> GitHub: https://github.com/andreiddls
+> Full CV (PDF): https://andreiddls.github.io/about-me/Andrei_Tolstykh_CV.pdf
+
+## Professional Summary
+Lead / Staff Product Designer and Design Technologist with 10+ years of digital product experience (designing complex enterprise software since 2016). Specializes in the intersection of UX strategy, scalable design systems, and frontend engineering for mission-critical enterprise platforms and emerging AI ecosystems. Track record includes architecting an in-house enterprise platform at Sberbank HQ replacing standard SAP Fiori for 15K+ monthly active users, and directing end-to-end product design for AI evaluation systems at QuantPi. Bridges the gap between product vision, complex business logic, and code through AI-augmented workflows (Claude Code, Codex, Storybook, React).
+
+## Core Competencies & Skills
+- **Product & Design Leadership:** UX Strategy, Complex Enterprise & B2B SaaS, Design Systems, Information Architecture (IA), Wireframing, Rapid Prototyping, Customer Discovery & Generative Research, Usability Testing, Cross-Functional Team Leadership.
+- **Design Engineering & Technology:** Figma, Storybook, Design Tokens, React, TypeScript, Tailwind CSS, Webflow, Git, Terminal & AI CLI toolchains (Claude Code, Codex, Grok).
+- **Domain Fluency:** Enterprise ERP / SAP Modernization, Financial Workflows & Analytics, AI Validation & LLM Model Governance, Risk Profiling.
+
+## Work Experience
+
+### Lead Product Designer / Design Strategist — QuantPi
+*Location: Saarbrücken, Germany | Period: September 2022 – Present*
+- Lead end-to-end product design, information architecture, and UX strategy for an enterprise AI testing and governance platform.
+- Architect and govern two scalable design systems in Storybook, ensuring design-token synchronization across Figma and React frontend repositories.
+- Pioneer AI-native prototyping and CLI environments (Claude Code, Codex, terminal toolchains) to pressure-test edge cases and accelerate dev handoff.
+- Facilitate customer discovery and generative research with enterprise clients to translate technical AI metrics into clear, human-centered decision flows.
+
+### Lead Product & UX Designer (Enterprise Platforms) — Sberbank (Central Finance Dept, HQ)
+*Location: Moscow | Period: June 2018 – August 2022*
+- Directed the ground-up product design and architecture of an in-house enterprise platform created to replace standard SAP Fiori for the bank's Headquarters.
+- Engineered complex transactional workflows, data grids, and approval systems scaling to 15K+ monthly active users across 10+ multidisciplinary squads.
+- Established internal design standards and usability metrics, transforming fragmented legacy tools into modern, consumer-grade enterprise software.
+- Successfully consolidated 100+ fragmented financial services into a unified product within 6 months from discovery to release.
+
+### UI/UX Designer (ERP Competence Center) — Sberbank
+*Location: Yekaterinburg | Period: June 2016 – June 2018*
+- Designed UI component libraries, responsive layouts, and user workflows supporting bank-wide ERP systems transformation.
+- Created standardized visual documentation, interactive guidelines, and interface assets for cross-regional engineering and operations teams.
+
+### Economist & Financial Systems Analyst — Sberbank
+*Location: Yekaterinburg | Period: January 2011 – June 2016*
+- Conducted financial forecasting, capital planning, and process analysis across enterprise banking units.
+- Personally designed and implemented automated data-aggregation models and reporting pipelines, cutting reporting delivery time by over 40%.
+
+## Key Projects & Impact
+1. **QuantPi Platform (Enterprise AI Testing & Governance):** Full-cycle UX/UI for an AI testing system used by 5+ Enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services.
+2. **CostPlatform (SAP Replacement):** Replaced SAP Fiori for 20K+ internal bank users by merging 100+ fragmented services into a single scalable product. Sole designer from discovery to release in 6 months. NPS increased significantly toward 80% target.
+3. **AI Hub:** Enterprise AI governance platform for evaluating LLM systems against regulatory and trust frameworks (Trust Profiles, risk matrices, automated assessment pipelines).
+
+## Education & Certifications
+- **Frontend Developer Certification** — Yandex Practicum (2021)
+- **Google UX Certification** — Google (2021)
+- **Degree in Computer Science (C++ Programming)** — University of Humanities, Yekaterinburg (2020)
+- **C++ Coursework** — Bauman Moscow State Technical University (2019)
+- **Bachelor's in Computer Science in Economics** — University of Humanities (2004 – 2009, Recognized by Anabin)
+- **Specialist Degree in Applied Informatics in Economics** — Ural College of Economics and Management (2009)
+
+## Languages
+- English: Fluent
+- German: B1
+- Russian: Native

@@ -24,10 +24,12 @@ function escapeHtml(text) {
 }
 
 function periodToDatetime(period) {
-  const match = String(period).match(/(\d{4})\s*[—–-]\s*(Present|\d{4})/i);
-  if (!match) return '';
-  const end = match[2].toLowerCase() === 'present' ? '' : match[2];
-  return end ? `${match[1]}/${end}` : match[1];
+  const years = String(period).match(/\d{4}/g);
+  if (!years) return '';
+  const isPresent = /present/i.test(period);
+  if (isPresent) return years[0];
+  if (years.length >= 2) return `${years[0]}/${years[1]}`;
+  return years[0];
 }
 
 function formatAchievementText(text) {
@@ -38,25 +40,87 @@ function formatAchievementText(text) {
   );
 }
 
+function formatTypography(text) {
+  return text
+    // Non-breaking hyphens for compound adjectives
+    .replace(/large-scale/g, 'large&#8209;scale')
+    .replace(/SAP-based/g, 'SAP&#8209;based')
+    .replace(/AI-powered/g, 'AI&#8209;powered')
+    .replace(/high-fidelity/g, 'high&#8209;fidelity')
+    // Non-breaking spaces for prepositions and tight brand/noun pairs
+    .replace(/\bUI\/UX\s+Designer\b/g, 'UI/UX&nbsp;Designer')
+    .replace(/\bwith\s+(\d+\+)/g, 'with&nbsp;$1')
+    .replace(/(\d+\+)\s+years\s+of\s+experience\b/g, '$1&nbsp;years of&nbsp;experience')
+    .replace(/\bacross\s+Big\s+Tech\b/g, 'across&nbsp;Big&nbsp;Tech')
+    .replace(/\bat\s+an\s+AI\s+startup\b/g, 'at&nbsp;an&nbsp;AI&nbsp;startup')
+    .replace(/\bwhere\s+I\s+design\b/g, 'where&nbsp;I&nbsp;design')
+    .replace(/\ba\s+platform\b/g, 'a&nbsp;platform')
+    .replace(/\bEastern\s+Europe's\b/g, 'Eastern&nbsp;Europe\'s')
+    .replace(/\blargest\s+FinTech\b/g, 'largest&nbsp;FinTech')
+    .replace(/\btwo\s+large/g, 'two&nbsp;large')
+    .replace(/\bin\s+Storybook\b/g, 'in&nbsp;Storybook')
+    .replace(/\bCLI\s+tools\b/g, 'CLI&nbsp;tools')
+    .replace(/\bsuch\s+as\b/g, 'such&nbsp;as')
+    .replace(/\bClaude\s+Code\b/g, 'Claude&nbsp;Code');
+}
+
 function renderAbout() {
   const about = data.about;
-  const paragraphs = about.paragraphs || (about.text ? [about.text] : []);
+  const startYear = about.experienceStartYear || 2017;
+  const currentYear = new Date().getFullYear();
+  const yearsExp = Math.max(1, currentYear - startYear);
+  const rawParagraphs = about.paragraphs || (about.text ? [about.text] : []);
   const email = about.links.email.split(':')[1] || about.links.email;
 
-  const paragraphHtml = paragraphs
-    .map((p) => `                            <p class="about-text">${escapeHtml(p)}</p>`)
+  const paragraphHtml = rawParagraphs
+    .map((p) => {
+      const replaced = p
+        .replace(/\{yearsExp\}/g, yearsExp)
+        .replace(/\b\d+\+\s+years of experience\b/gi, `${yearsExp}+ years of experience`);
+      const escaped = escapeHtml(replaced);
+      const withSpan = escaped.replace(
+        new RegExp(`(${yearsExp}\\+)`, 'g'),
+        `<span class="exp-years-count" data-start-year="${startYear}">$1</span>`
+      );
+      const withTypography = formatTypography(withSpan);
+      return `                            <p class="about-text">${withTypography}</p>`;
+    })
     .join('\n');
 
   return `                <article class="bento-tile tile-about" data-tile="about">
-                    <div class="about-photo">
-                        <img src="${escapeHtml(about.avatar.src)}" alt="${escapeHtml(about.name)}" loading="lazy"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="avatar-placeholder" style="display:none;">${escapeHtml(about.avatar.initials)}</div>
-                    </div>
                     <div class="tile-content about-body">
-                        <header class="about-meta">
-                            <h1>${escapeHtml(about.name)}</h1>
-                            <p class="subtitle"><span>${escapeHtml(about.subtitle)}</span> <span>${escapeHtml(about.locationEmoji || '📍')} ${escapeHtml(about.location)}</span></p>
+                        <header class="about-header">
+                            <div class="about-avatar-wrap">
+                                <img class="about-avatar" src="${escapeHtml(about.avatar.src)}" alt="${escapeHtml(about.name)}" loading="lazy"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="avatar-placeholder" style="display:none;">${escapeHtml(about.avatar.initials)}</div>
+                            </div>
+                            <div class="about-meta">
+                                <div class="about-title-block">
+                                    <h1>${escapeHtml(about.name)}</h1>
+                                    <p class="subtitle"><span class="subtitle-role">${escapeHtml(about.subtitle)}</span> <span class="subtitle-loc">${escapeHtml(about.locationEmoji || '📍')} ${escapeHtml(about.location)}</span></p>
+                                </div>
+                                <nav class="about-links" aria-label="Contact links">
+                                    <a href="${escapeHtml(about.links.linkedin)}" target="_blank" rel="noopener" class="link-chip">
+                                        <svg class="icon" viewBox="-2 -2 28 28" fill="currentColor" aria-hidden="true">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                        </svg>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="mailto:${escapeHtml(email)}" class="link-chip">
+                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                        </svg>
+                                        <span>Email</span>
+                                    </a>
+                                    <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv">
+                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                                        </svg>
+                                        <span>CV PDF</span>
+                                    </a>
+                                </nav>
+                            </div>
                         </header>
                         <section aria-labelledby="about-title">
                             <h2 id="about-title">About</h2>
@@ -64,26 +128,6 @@ function renderAbout() {
 ${paragraphHtml}
                             </div>
                         </section>
-                        <nav class="about-links" aria-label="Contact links">
-                            <a href="${escapeHtml(about.links.linkedin)}" target="_blank" rel="noopener" class="link-chip">
-                                <svg class="icon" viewBox="-2 -2 28 28" fill="currentColor" aria-hidden="true">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:${escapeHtml(email)}" class="link-chip">
-                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                                </svg>
-                                <span>Email</span>
-                            </a>
-                            <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv">
-                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-                                </svg>
-                                <span>CV PDF</span>
-                            </a>
-                        </nav>
                     </div>
                 </article>`;
 }
@@ -122,6 +166,24 @@ ${project.tags.map((tag) => `                                <li><span class="pr
                             </ul>`
       : '';
 
+    let contentHtml = '';
+    if (isNda) {
+      contentHtml = `
+                            <div class="project-nda-expand-wrap">
+                                <button type="button" class="project-expand-btn" aria-expanded="false" aria-label="Toggle project details">
+                                    <span class="expand-btn-text">Show details</span>
+                                    <svg class="expand-btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <div class="project-expand-collapsible">
+${achievementsHtml}${tagsHtml}
+                                </div>
+                            </div>`;
+    } else {
+      contentHtml = `${achievementsHtml}${tagsHtml}`;
+    }
+
     return `                        <article class="${cardClasses}" data-project="${escapeHtml(project.id)}"${linkAttr}>
                             ${arrowIcon}
                             <header class="project-card-header">
@@ -129,7 +191,7 @@ ${project.tags.map((tag) => `                                <li><span class="pr
                                 <time class="project-period" datetime="${escapeHtml(periodToDatetime(project.period))}">${escapeHtml(project.period)}</time>
                             </header>
                             <h3>${escapeHtml(project.name)}</h3>
-                            <p>${escapeHtml(project.description)}</p>${achievementsHtml}${tagsHtml}
+                            <p>${escapeHtml(project.description)}</p>${contentHtml}
                         </article>`;
   }).join('\n');
 }
@@ -223,6 +285,9 @@ function replaceBlock(source, name, content) {
 }
 
 let output = template;
+const expStartYear = data.about.experienceStartYear || 2017;
+const currentYearsExp = Math.max(1, new Date().getFullYear() - expStartYear);
+output = output.replace(/\b\d+\+\s+years of experience\b/gi, `${currentYearsExp}+ years of experience`);
 output = replaceBlock(output, 'ABOUT', renderAbout());
 output = replaceBlock(output, 'PROJECTS', renderProjects());
 output = replaceBlock(output, 'EXPERIENCE', renderExperience());

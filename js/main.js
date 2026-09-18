@@ -1,11 +1,22 @@
 import { cvData } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    initDynamicYears();
     initTileInteractions();
+    initProjectExpands();
     initModal();
     initThemeToggle();
     initScrollAnimations();
+    initTimelinePill();
 });
+
+function initDynamicYears() {
+    document.querySelectorAll('.exp-years-count').forEach(el => {
+        const startYear = parseInt(el.dataset.startYear, 10) || 2017;
+        const years = Math.max(1, new Date().getFullYear() - startYear);
+        el.textContent = `${years}+`;
+    });
+}
 
 function initTileInteractions() {
     document.querySelectorAll('[data-tile="sber"]').forEach(tile => {
@@ -17,7 +28,11 @@ function initTileInteractions() {
     });
 
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.project-expand-btn')) {
+                return;
+            }
+
             const projectId = card.dataset.project;
             const link = card.dataset.link;
 
@@ -32,7 +47,6 @@ function initTileInteractions() {
             }
         });
     });
-
     document.querySelectorAll('.bento-tile.tile-clickable').forEach(tile => {
         if (window.matchMedia('(pointer: coarse)').matches) return;
 
@@ -50,6 +64,22 @@ function initTileInteractions() {
 
         tile.addEventListener('mouseleave', () => {
             tile.style.transform = '';
+        });
+    });
+}
+
+function initProjectExpands() {
+    document.querySelectorAll('.project-expand-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const wrap = btn.closest('.project-nda-expand-wrap');
+            if (!wrap) return;
+            const isExpanded = wrap.classList.toggle('is-expanded');
+            btn.setAttribute('aria-expanded', isExpanded);
+            const textSpan = btn.querySelector('.expand-btn-text');
+            if (textSpan) {
+                textSpan.textContent = isExpanded ? 'Hide details' : 'Show details';
+            }
         });
     });
 }
@@ -208,4 +238,32 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+function initTimelinePill() {
+    const update = () => {
+        const timeline = document.querySelector('.exp-timeline');
+        if (!timeline) return;
+        const pill = timeline.querySelector('.exp-pill');
+        const firstItem = timeline.querySelector('.exp-item:first-child');
+        const lastItem = timeline.querySelector('.exp-item:last-child');
+        if (!pill || !firstItem || !lastItem) return;
+
+        // Node circle: 12px, offset 0.22rem (~3.5px) from the item top; the last
+        // one is lifted 5px (--exp-node-lift) so it sits inside the capsule.
+        // The capsule is 18px wide, so its rounded tail needs ~half that below
+        // the last node's centre for the circle to sit fully inside the gradient.
+        const nodeCenter = lastItem.offsetTop + 3.5 - 5 + 6;
+        const startY = Math.max(0, firstItem.offsetTop - 4);
+        const endY = nodeCenter + 9 + 5;
+
+        pill.style.top = `${startY}px`;
+        pill.style.height = `${endY - startY}px`;
+    };
+
+    update();
+    window.addEventListener('resize', update, { passive: true });
+    if (document.fonts?.ready) {
+        document.fonts.ready.then(update);
+    }
 }

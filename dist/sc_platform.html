@@ -15,8 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -85,6 +84,9 @@
             .step-number { width: 1.875rem; height: 1.875rem; font-size: 0.85rem; }
         }
     </style>
+  <script type="module" crossorigin src="./assets/sc_platform-BEIhjJbK.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/main-D47Hhk60.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-CzLV8Cu9.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -382,14 +384,5 @@
         </svg>
     </button>
 
-    <script type="module" src="/js/main.js"></script>
-    <script type="module">
-        import scPlatformData from './data/sc-platform-data.json';
-        import { renderFinalScores } from './js/FinalScoreCharts.jsx';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderFinalScores('final-score-nps', 'final-score-mau', scPlatformData.finalScoreCharts);
-        });
-    </script>
 </body>
 </html>

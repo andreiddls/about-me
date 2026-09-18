@@ -1,7 +1,8 @@
 {
   "about": {
     "name": "Andrei Tolstykh",
-    "subtitle": "Senior Product Designer",
+    "subtitle": "Staff Product Designer & Design Technologist",
+    "experienceStartYear": 2017,
     "location": "Saarbrücken (Germany)",
     "locationEmoji": "📍",
     "avatar": {
@@ -11,10 +12,10 @@
     "links": {
       "linkedin": "https://linkedin.com/in/tolstykhaa",
       "email": "mailto:tolstykhandrew@gmail.com",
-      "cvPdf": "https://onedrive.live.com/?cid=5cd8c3542857ecb5&id=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263b&resid=5CD8C3542857ECB5%21s80168cd2eba04895b0f8f670ca68263&ithint=file%2Cpdf&e=Q2fykI&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy81Y2Q4YzM1NDI4NTdlY2I1L0lRRFNqQmFBb091VlNMRDQ5bkRLYUNZN0Faa1hVSGwyc1g4WWxDbUJmU0xGN1FnP2U9UTJmeWtJ&v=validatepermission"
+      "cvPdf": "Andrei_Tolstykh_CV.pdf"
     },
     "paragraphs": [
-      "I'm a Product and UI/UX Designer with 7+ years of experience designing complex B2B products across Big Tech and startup environments. Currently, I work at an AI startup, where I design a platform for trustworthy and responsible AI. Previously, I worked at one of Eastern Europe's largest FinTech companies, designing a large-scale financial platform and contributing to SAP-based enterprise solutions.",
+      "I'm a Product and UI/UX Designer with {yearsExp}+ years of experience designing complex B2B products across Big Tech and startup environments. Currently, I work at an AI startup, where I design a platform for trustworthy and responsible AI. Previously, I worked at one of Eastern Europe's largest FinTech companies, designing a large-scale financial platform and contributing to SAP-based enterprise solutions.",
       "I specialize in simplifying complex workflows and creating scalable product experiences. I collaborate closely with engineers and product teams and have built two large-scale design systems in Storybook.",
       "Using AI-powered CLI tools such as Claude Code, Codex, and Grok, I develop and maintain these systems and turn their components into functional, high-fidelity prototypes."
     ]
@@ -35,10 +36,10 @@
   "experience": [
     {
       "company": "QuantPi",
-      "role": "Senior Product Designer",
-      "period": "2022 - Present",
-      "location": "Germany",
-      "description": "Lead product design for an enterprise AI platform, simplifying complex evaluation workflows and data-heavy experiences. Built two large-scale design systems in Storybook and use AI-powered CLI tools to turn production components into functional, high-fidelity prototypes.",
+      "role": "Lead Product Designer / Design Strategist",
+      "period": "Sep 2022 – Present",
+      "location": "Saarbrücken, Germany",
+      "description": "Lead end-to-end product design, information architecture, and UX strategy for an enterprise AI testing and governance platform.",
       "highlights": [
         "2 large-scale Storybook design systems built",
         "10+ AI evaluation modules designed",
@@ -46,11 +47,11 @@
       ]
     },
     {
-      "company": "Sberbank",
-      "role": "Product Designer / Lead UI/UX",
-      "period": "2019 - 2022",
+      "company": "Sberbank (Central Finance Dept, HQ)",
+      "role": "Lead Product & UX Designer (Enterprise Platforms)",
+      "period": "Jun 2018 – Aug 2022",
       "location": "Moscow",
-      "description": "Designed a large-scale enterprise FinTech platform, simplifying fragmented financial workflows across 100+ internal services. Worked end-to-end from discovery and research to responsive web and mobile delivery.",
+      "description": "Directed the ground-up product design and architecture of an in-house enterprise platform created to replace standard SAP Fiori for the bank's Headquarters.",
       "highlights": [
         "20K+ MAU platform",
         "100+ fragmented services consolidated",
@@ -59,19 +60,19 @@
       ]
     },
     {
-      "company": "Sberbank (ERP Center)",
-      "role": "Graphic Designer",
-      "period": "2016 - 2018",
-      "location": "Moscow",
-      "description": "Promoted division products via presentations, video content, and training materials.",
+      "company": "Sberbank (ERP Competence Center)",
+      "role": "UI/UX Designer",
+      "period": "Jun 2016 – Jun 2018",
+      "location": "Yekaterinburg",
+      "description": "Designed UI component libraries, responsive layouts, and user workflows supporting bank-wide ERP systems transformation.",
       "highlights": []
     },
     {
-      "company": "Sberbank (Financial Management)",
-      "role": "Financier",
-      "period": "2011 - 2016",
-      "location": "Moscow",
-      "description": "Produced and automated fiscal reporting.",
+      "company": "Sberbank",
+      "role": "Economist & Financial Systems Analyst",
+      "period": "Jan 2011 – Jun 2016",
+      "location": "Yekaterinburg",
+      "description": "Conducted financial forecasting, capital planning, and process analysis across enterprise banking units.",
       "highlights": []
     }
   ],
