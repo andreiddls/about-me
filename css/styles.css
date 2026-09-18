@@ -720,8 +720,9 @@ h3 {
 .exp-timeline {
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
+    gap: var(--exp-gap);
     position: relative;
+    --exp-gap: 1.75rem;
     --exp-node-top: 0.22rem;
     --exp-node-size: 12px;
     --exp-line-gap: 6px;
@@ -781,7 +782,7 @@ h3 {
     position: absolute;
     left: 8px;
     top: calc(var(--exp-node-top) + var(--exp-node-size) + var(--exp-line-gap));
-    bottom: calc(-1 * (var(--space-5) + var(--exp-node-top)) + var(--exp-line-gap));
+    bottom: calc(-1 * (var(--exp-gap) + var(--exp-node-top)) + var(--exp-line-gap));
     width: 2px;
     background: var(--exp-line);
     z-index: 1;
@@ -794,7 +795,7 @@ h3 {
 }
 
 .exp-item:nth-last-of-type(2)::after {
-    bottom: calc(-1 * (var(--space-5) + var(--exp-node-top)) + var(--exp-line-gap) + var(--exp-node-lift));
+    bottom: calc(-1 * (var(--exp-gap) + var(--exp-node-top)) + var(--exp-line-gap) + var(--exp-node-lift));
 }
 
 .exp-item:last-of-type::after {
@@ -806,7 +807,7 @@ h3 {
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: var(--space-1) var(--space-5);
     margin-bottom: var(--space-1);
 }
 
@@ -831,6 +832,7 @@ h3 {
 
 .exp-period {
     font-size: 0.7rem;
+    white-space: nowrap;
     color: var(--text-tertiary);
     font-family: var(--font-mono);
 }
