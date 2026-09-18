@@ -250,8 +250,11 @@ function initTimelinePill() {
         const timeline = document.querySelector('.exp-timeline');
         if (!timeline) return;
         const pill = timeline.querySelector('.exp-pill');
-        const firstItem = timeline.querySelector('.exp-item:first-child');
-        const lastItem = timeline.querySelector('.exp-item:last-child');
+        // .exp-pill itself is the timeline's first child, so :first-child never
+        // matches an item - take the items as a list instead.
+        const items = timeline.querySelectorAll('.exp-item');
+        const firstItem = items[0];
+        const lastItem = items[items.length - 1];
         if (!pill || !firstItem || !lastItem) return;
 
         // Node circle: 12px, offset 0.22rem (~3.5px) from the item top; the last

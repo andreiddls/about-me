@@ -767,8 +767,7 @@ h3 {
 }
 
 /* Latest / current experience (QuantPi): active dot inside the ring + subtle glow */
-.exp-item:first-of-type::before,
-.exp-item:first-child::before {
+.exp-item:first-of-type::before {
     border-color: var(--exp-ring-curr);
     background: var(--exp-dot-curr);
     box-shadow: inset 0 0 0 2px var(--bg-tile), 0 0 0 3px var(--exp-glow-curr);
@@ -798,8 +797,7 @@ h3 {
     bottom: calc(-1 * (var(--space-5) + var(--exp-node-top)) + var(--exp-line-gap) + var(--exp-node-lift));
 }
 
-.exp-item:last-of-type::after,
-.exp-item:last-child::after {
+.exp-item:last-of-type::after {
     display: none;
 }
 
