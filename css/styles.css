@@ -1754,11 +1754,11 @@ h3 {
 
 .about-cv-link {
     margin-top: var(--space-3);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .about-cv-link a {
-    color: var(--accent-blue);
+    color: var(--text-tertiary);
     text-decoration: none;
 }
 

@@ -93,7 +93,7 @@ function renderAbout() {
                                 <li><strong>Work authorization:</strong> ${escapeHtml(availability.workAuthorization)}</li>
                                 <li><strong>Based in:</strong> ${escapeHtml(availability.basedIn)}</li>
                             </ul>
-                            <p class="about-cv-link"><a href="${escapeHtml(about.links.cvPage || 'cv.html')}">Read the full CV as a web page →</a></p>`
+                            <p class="about-cv-link"><a href="${escapeHtml(about.links.cvPage || 'cv.html')}">Full CV →</a></p>`
     : '';
 
   return `                <article class="bento-tile tile-about" data-tile="about">
