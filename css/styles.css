@@ -1801,8 +1801,9 @@ h3 {
 .cv-split:hover .cv-split-toggle,
 .cv-split:focus-within .cv-split-main,
 .cv-split:focus-within .cv-split-toggle {
-    background: var(--accent-blue);
-    color: var(--text-inverse);
+    /* a touch deeper than the resting tint, keeping the blue label */
+    background: rgba(59, 130, 246, 0.22);
+    color: var(--accent-blue);
 }
 
 .cv-split-caret {
