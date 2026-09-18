@@ -1005,7 +1005,7 @@ h3 {
 }
 
 .project-card.active-project {
-    background: var(--bg-tile-hover);
+    background: var(--bg-tile);
     border-color: #7fb0fb;
     box-shadow: 0 0 16px rgba(127, 176, 251, 0.28);
 }
