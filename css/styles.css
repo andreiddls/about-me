@@ -683,6 +683,22 @@ h3 {
         margin-top: var(--space-1);
     }
 
+    .about-links .cv-split {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .about-links .cv-split .cv-split-main {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding-right: var(--space-2);
+    }
+
+    .about-links .cv-split .cv-split-toggle {
+        flex: 0 0 auto;
+        padding: 0.55rem 0.4rem;
+    }
+
     .about-links .link-chip {
         flex: 1 1 0;
         min-width: 0;
@@ -1752,18 +1768,69 @@ h3 {
     color: var(--text-primary);
 }
 
-.about-cv-link {
-    margin-top: var(--space-3);
-    font-size: 0.8rem;
+/* CV split button: download is the primary action, the caret opens both
+   options. Both menu entries are real links so crawlers still find cv.html. */
+.cv-split {
+    position: relative;
+    display: inline-flex;
+    align-items: stretch;
+    gap: 1px;
+    z-index: 5;
 }
 
-.about-cv-link a {
-    color: var(--text-tertiary);
+.cv-split-main {
+    border-radius: 100px 0 0 100px;
+    padding-right: var(--space-4);
+}
+
+.cv-split-toggle {
+    border-radius: 0 100px 100px 0;
+    padding: var(--space-3) var(--space-3);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.cv-split-caret {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--transition-fast);
+}
+
+.cv-split-toggle[aria-expanded="true"] .cv-split-caret {
+    transform: rotate(180deg);
+}
+
+.cv-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 12rem;
+    padding: var(--space-2);
+    background: var(--bg-tile);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 20;
+}
+
+.cv-menu a {
+    padding: var(--space-2) var(--space-3);
+    border-radius: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
     text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-.about-cv-link a:hover {
-    text-decoration: underline;
+.cv-menu a:hover,
+.cv-menu a:focus-visible {
+    background: var(--accent-blue-light);
+    color: var(--accent-blue);
 }
 
 /* The project title is a real link so crawlers can reach the case study */

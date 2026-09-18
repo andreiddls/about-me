@@ -92,8 +92,7 @@ function renderAbout() {
     ? `                            <ul class="about-facts" aria-label="Availability">
                                 <li><strong>Work authorization:</strong> ${escapeHtml(availability.workAuthorization)}</li>
                                 <li><strong>Based in:</strong> ${escapeHtml(availability.basedIn)}</li>
-                            </ul>
-                            <p class="about-cv-link"><a href="${escapeHtml(about.links.cvPage || 'cv.html')}">Full CV →</a></p>`
+                            </ul>`
     : '';
 
   return `                <article class="bento-tile tile-about" data-tile="about">
@@ -122,12 +121,23 @@ function renderAbout() {
                                         </svg>
                                         <span>Email</span>
                                     </a>
-                                    <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv">
-                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-                                        </svg>
-                                        <span>CV PDF</span>
-                                    </a>
+                                    <div class="cv-split" data-cv-menu>
+                                        <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv cv-split-main">
+                                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                                            </svg>
+                                            <span>CV</span>
+                                        </a>
+                                        <button type="button" class="link-chip link-cv cv-split-toggle" aria-haspopup="true" aria-expanded="false" aria-label="CV options">
+                                            <svg class="icon cv-split-caret" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </button>
+                                        <div class="cv-menu" role="menu" hidden>
+                                            <a role="menuitem" href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener">Download PDF</a>
+                                            <a role="menuitem" href="${escapeHtml(about.links.cvPage || 'cv.html')}">Open as web page</a>
+                                        </div>
+                                    </div>
                                 </nav>
                             </div>
                         </header>

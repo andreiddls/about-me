@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectExpands();
     initModal();
     initThemeToggle();
+    initCvMenu();
     initScrollAnimations();
     initTimelinePill();
 });
@@ -81,6 +82,35 @@ function initProjectExpands() {
                 textSpan.textContent = isExpanded ? 'Hide details' : 'Show details';
             }
         });
+    });
+}
+
+function initCvMenu() {
+    const split = document.querySelector('[data-cv-menu]');
+    if (!split) return;
+    const toggle = split.querySelector('.cv-split-toggle');
+    const menu = split.querySelector('.cv-menu');
+    if (!toggle || !menu) return;
+
+    const setOpen = (open) => {
+        menu.hidden = !open;
+        toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setOpen(menu.hidden);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu.hidden && !split.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.hidden) {
+            setOpen(false);
+            toggle.focus();
+        }
     });
 }
 
