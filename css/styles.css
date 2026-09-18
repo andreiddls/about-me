@@ -1791,6 +1791,20 @@ h3 {
     font-family: inherit;
 }
 
+/* The two halves read as one control: no lift, and hovering either one
+   highlights both. */
+.cv-split .link-chip:hover {
+    transform: none;
+}
+
+.cv-split:hover .cv-split-main,
+.cv-split:hover .cv-split-toggle,
+.cv-split:focus-within .cv-split-main,
+.cv-split:focus-within .cv-split-toggle {
+    background: var(--accent-blue);
+    color: var(--text-inverse);
+}
+
 .cv-split-caret {
     width: 1rem;
     height: 1rem;
