@@ -173,14 +173,16 @@ function initThemeToggle() {
     const btn = document.getElementById('theme-toggle');
     const sunIcon = btn?.querySelector('.sun-icon');
     const moonIcon = btn?.querySelector('.moon-icon');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.classList.remove('theme-light', 'theme-dark');
-        document.documentElement.classList.add(currentTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('theme-dark');
-    }
+    // No class on <html> means "follow the system" - the stylesheet handles it.
+    // A stored choice is applied by the inline script in <head>, before paint.
+    const effectiveTheme = () => {
+        const root = document.documentElement;
+        if (root.classList.contains('theme-dark')) return 'theme-dark';
+        if (root.classList.contains('theme-light')) return 'theme-light';
+        return prefersDark.matches ? 'theme-dark' : 'theme-light';
+    };
 
     const updateIcons = (theme) => {
         if (sunIcon && moonIcon) {
@@ -190,24 +192,27 @@ function initThemeToggle() {
     };
 
     const toggleTheme = () => {
-        const isDark = document.documentElement.classList.contains('theme-dark') ||
-                       (!document.documentElement.classList.contains('theme-light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        if (isDark) {
-            document.documentElement.classList.remove('theme-dark');
-            document.documentElement.classList.add('theme-light');
-            localStorage.setItem('theme', 'theme-light');
-        } else {
-            document.documentElement.classList.remove('theme-light');
-            document.documentElement.classList.add('theme-dark');
-            localStorage.setItem('theme', 'theme-dark');
-        }
-        updateIcons(document.documentElement.classList.contains('theme-dark') ? 'theme-dark' : 'theme-light');
+        const next = effectiveTheme() === 'theme-dark' ? 'theme-light' : 'theme-dark';
+        document.documentElement.classList.remove('theme-light', 'theme-dark');
+        document.documentElement.classList.add(next);
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {}
+        updateIcons(next);
     };
+
+    // While no explicit choice is stored, follow the OS switching live.
+    prefersDark.addEventListener('change', () => {
+        let stored = null;
+        try {
+            stored = localStorage.getItem('theme');
+        } catch (e) {}
+        if (!stored) updateIcons(effectiveTheme());
+    });
 
     if (btn) {
         btn.addEventListener('click', toggleTheme);
-        updateIcons(document.documentElement.classList.contains('theme-dark') ? 'theme-dark' : 'theme-light');
+        updateIcons(effectiveTheme());
     }
 }
 

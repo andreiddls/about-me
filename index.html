@@ -4,6 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Theme is system-driven by default; only an explicit user choice is stored.
+        // Applied here, before first paint, so a stored choice never flashes.
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'theme-dark' || stored === 'theme-light') {
+                    document.documentElement.classList.add(stored);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>Andrei Tolstykh | Staff Product Designer &amp; Design Technologist</title>
     <meta name="description"
         content="Staff Product Designer &amp; Design Technologist with 9+ years of experience across Big Tech and AI startups. Specialized in complex B2B products, Storybook design systems and AI-powered prototyping.">
@@ -14,7 +26,7 @@
     <meta property="og:description"
         content="Staff Product Designer &amp; Design Technologist specializing in complex B2B products, AI platforms, Storybook design systems and functional prototyping.">
     <meta property="og:url" content="https://andreiddls.github.io/about-me/">
-    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar.png">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar-2026.png">
     <meta property="og:image:alt" content="Andrei Tolstykh | Staff Product Designer &amp; Design Technologist">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +43,7 @@
         "name": "Andrei Tolstykh",
         "jobTitle": "Staff Product Designer & Design Technologist",
         "url": "https://andreiddls.github.io/about-me/",
-        "image": "https://andreiddls.github.io/about-me/avatar.png",
+        "image": "https://andreiddls.github.io/about-me/avatar-2026.png",
         "email": "mailto:tolstykhandrew@gmail.com",
         "telephone": "+4917653480027",
         "address": {
@@ -102,7 +114,7 @@
                     <div class="tile-content about-body">
                         <header class="about-header">
                             <div class="about-avatar-wrap">
-                                <img class="about-avatar" src="avatar.png" alt="Andrei Tolstykh" loading="lazy"
+                                <img class="about-avatar" src="avatar-2026.png" alt="Andrei Tolstykh" loading="lazy"
                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="avatar-placeholder" style="display:none;">AT</div>
                             </div>

@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Theme is system-driven by default; only an explicit user choice is stored.
+        // Applied here, before first paint, so a stored choice never flashes.
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'theme-dark' || stored === 'theme-light') {
+                    document.documentElement.classList.add(stored);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>Cost Platform Case Study | Andrei Tolstykh</title>
     <meta name="description" content="How I replaced SAP Fiori with a custom ReactJS platform for 20,000+ bank employees: data-driven UX research, information architecture, design system and mobile rollout.">
     <link rel="canonical" href="https://andreiddls.github.io/about-me/sc_platform.html">
@@ -11,7 +23,7 @@
     <meta property="og:title" content="Cost Platform Case Study | Andrei Tolstykh">
     <meta property="og:description" content="Replacing SAP Fiori with a custom ReactJS platform for 20,000+ bank employees, told step by step from problem to outcome.">
     <meta property="og:url" content="https://andreiddls.github.io/about-me/sc_platform.html">
-    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar.png">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar-2026.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

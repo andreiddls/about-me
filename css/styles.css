@@ -1,4 +1,8 @@
 :root {
+    /* Tells the browser which palette its own UI (scrollbars, form
+       controls, canvas) should use - kept in sync with each theme below. */
+    color-scheme: light;
+
     --max-width: 72rem;
     --radius-sm: 0.75rem;
     --radius-md: 1.25rem;
@@ -24,6 +28,7 @@
 
 @media (prefers-color-scheme: light) {
     :root:not(.theme-dark) {
+        color-scheme: light;
         --bg-page: #e8ecf3;
         --bg-tile: #ffffff;
         --bg-tile-hover: #f8f9fb;
@@ -59,6 +64,7 @@
 }
 
 :root.theme-light {
+    color-scheme: light;
     --bg-page: #e8ecf3;
     --bg-tile: #ffffff;
     --bg-tile-hover: #f8f9fb;
@@ -94,6 +100,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root:not(.theme-light) {
+        color-scheme: dark;
         --bg-page: #0f1115;
         --bg-tile: #1F232B;
         --bg-tile-hover: #22262f;
@@ -129,6 +136,7 @@
 }
 
 :root.theme-dark {
+    color-scheme: dark;
     --bg-page: #0f1115;
     --bg-tile: #1F232B;
     --bg-tile-hover: #22262f;
@@ -616,8 +624,8 @@ h3 {
     .about-avatar-wrap {
         grid-column: 1;
         grid-row: 1;
-        width: 86px;
-        height: 98px;
+        width: 104px;
+        height: 118px;
         border-radius: 1.125rem;
     }
 
@@ -692,8 +700,8 @@ h3 {
 
 @media (max-width: 360px) {
     .about-avatar-wrap {
-        width: 76px;
-        height: 86px;
+        width: 92px;
+        height: 104px;
         border-radius: 1rem;
     }
 
