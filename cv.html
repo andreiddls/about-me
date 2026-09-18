@@ -8,6 +8,9 @@
         // Theme is system-driven by default; only an explicit user choice is stored.
         // Applied here, before first paint, so a stored choice never flashes.
         (function () {
+            // Mobile browsers restore the last scroll offset when the tab is reopened,
+            // which drops you mid-tile instead of at the top of the page.
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
             try {
                 var stored = localStorage.getItem('theme');
                 if (stored === 'theme-dark' || stored === 'theme-light') {
