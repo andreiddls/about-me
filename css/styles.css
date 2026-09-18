@@ -479,6 +479,11 @@ h3 {
     flex-direction: column;
 }
 
+/* the availability lines sit close to the tile edge without this */
+.tile-about .tile-content {
+    padding-bottom: 2.5rem;
+}
+
 .about-body {
     width: 100%;
 }
