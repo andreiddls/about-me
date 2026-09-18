@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "name": "Andrei Tolstykh",
+    "title": "Staff Product Designer & Design Technologist",
+    "location": "Saarbrücken, Germany",
+    "email": "tolstykhandrew@gmail.com",
+    "phone": "+49 17653480027",
+    "site": "https://andreiddls.github.io/about-me/",
+    "linkedin": "https://linkedin.com/in/tolstykhaa",
+    "github": "https://github.com/andreiddls",
+    "cvPdf": "Andrei_Tolstykh_CV.pdf"
+  },
+  "availability": {
+    "workAuthorization": "EU work permit, Germany-based — no visa sponsorship required",
+    "basedIn": "Saarbrücken, Germany · available for roles across the EU"
+  },
+  "summary": "Lead / Staff Product Designer and Design Technologist with 9+ years of digital product experience. Specializes in the intersection of UX strategy, scalable design systems, and frontend engineering for mission-critical enterprise platforms and emerging AI ecosystems. Track record includes architecting an in-house enterprise platform at Sberbank HQ replacing standard SAP Fiori for 20K+ monthly active users, and directing end-to-end product design for AI evaluation systems at QuantPi. Bridges the gap between product vision, complex business logic, and code through AI-augmented workflows (Claude Code, Codex, Storybook, React).",
+  "experience": [
+    {
+      "role": "Lead Product Designer / Design Strategist",
+      "company": "QuantPi",
+      "location": "Saarbrücken, Germany",
+      "period": "September 2022 – Present",
+      "bullets": [
+        "Lead end-to-end product design, information architecture, and UX strategy for an enterprise AI testing and governance platform.",
+        "Architect and govern two scalable design systems in Storybook, ensuring design-token synchronization across Figma and React frontend repositories.",
+        "Pioneer AI-native prototyping and CLI environments (Claude Code, Codex, terminal toolchains) to pressure-test edge cases and accelerate dev handoff.",
+        "Facilitate customer discovery and generative research with enterprise clients to translate technical AI metrics into clear, human-centered decision flows."
+      ]
+    },
+    {
+      "role": "Lead Product & UX Designer (Enterprise Platforms)",
+      "company": "Sberbank (Central Finance Dept, HQ)",
+      "location": "Moscow",
+      "period": "June 2018 – August 2022",
+      "bullets": [
+        "Directed the ground-up product design and architecture of an in-house enterprise platform created to replace standard SAP Fiori for the bank's Headquarters.",
+        "Engineered complex transactional workflows, data grids, and approval systems scaling to 20K+ monthly active users across 10+ multidisciplinary squads.",
+        "Established internal design standards and usability metrics, transforming fragmented legacy tools into modern, consumer-grade enterprise software.",
+        "Consolidated 100+ fragmented financial services into a single scalable product in 6 months from discovery to release."
+      ]
+    },
+    {
+      "role": "UI/UX Designer (ERP Competence Center)",
+      "company": "Sberbank",
+      "location": "Yekaterinburg",
+      "period": "June 2016 – June 2018",
+      "bullets": [
+        "Designed UI component libraries, responsive layouts, and user workflows supporting bank-wide ERP systems transformation.",
+        "Created standardized visual documentation, interactive guidelines, and interface assets for cross-regional engineering and operations teams."
+      ]
+    },
+    {
+      "role": "Economist & Financial Systems Analyst",
+      "company": "Sberbank",
+      "location": "Yekaterinburg",
+      "period": "January 2011 – June 2016",
+      "bullets": [
+        "Conducted financial forecasting, capital planning, and process analysis across enterprise banking units.",
+        "Personally designed and implemented automated data-aggregation models and reporting pipelines, cutting reporting delivery time by over 40%."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "QuantPi Platform (Enterprise AI Testing & Governance)",
+      "summary": "Full-cycle UX/UI for an AI testing system used by 5+ enterprise clients. Built 10+ AI evaluation modules and model pipelines across 3 core services."
+    },
+    {
+      "name": "CostPlatform (SAP Fiori Replacement)",
+      "summary": "Replaced SAP Fiori for 20K+ internal bank users by merging 100+ fragmented services into a single scalable product. Sole designer from discovery to release in 6 months. NPS improved from 54% toward the 80% target.",
+      "url": "https://andreiddls.github.io/about-me/sc_platform.html"
+    },
+    {
+      "name": "AI Hub",
+      "summary": "Enterprise AI governance platform for evaluating LLM systems against regulatory and trust frameworks (Trust Profiles, risk matrices, automated assessment pipelines)."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Product & Design Leadership",
+      "items": "UX Strategy, Complex Enterprise & B2B SaaS, Design Systems, Information Architecture, Wireframing, Rapid Prototyping, Customer Discovery & Generative Research, Usability Testing, Cross-Functional Team Leadership"
+    },
+    {
+      "group": "Design Engineering & Technology",
+      "items": "Figma, Storybook, Design Tokens, React, TypeScript, Tailwind CSS, Webflow, Git, Terminal & AI CLI toolchains (Claude Code, Codex, Grok)"
+    },
+    {
+      "group": "Domain Fluency",
+      "items": "Enterprise ERP & SAP Modernization, Financial Workflows & Analytics, AI Validation & LLM Model Governance, Risk Profiling"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Degree in Computer Science (C++ Programming)",
+      "school": "Ural Federal University, Yekaterinburg",
+      "year": "2020"
+    },
+    {
+      "degree": "Bachelor's in Computer Science in Economics",
+      "school": "Ural Federal University",
+      "year": "2004 – 2009"
+    },
+    {
+      "degree": "Specialist Degree in Applied Informatics in Economics",
+      "school": "Ural College of Economics and Management",
+      "year": "2009"
+    }
+  ],
+  "certifications": [
+    { "name": "Front-end Developer Program, Yandex", "year": "2022" },
+    { "name": "Google UX Certification", "year": "2021" },
+    { "name": "C++ Coursework, Bauman Moscow State Technical University", "year": "2019" }
+  ],
+  "languages": [
+    { "name": "English", "level": "Fluent" },
+    { "name": "German", "level": "B1" },
+    { "name": "Russian", "level": "Native" }
+  ]
+}

@@ -1545,10 +1545,210 @@ h3 {
 /* ─── Mobile ─── */
 @media (max-width: 767px) {
     .page-wrapper {
-        padding: var(--space-3) var(--space-2);
+        /* extra room at the bottom so the last tile clears the theme toggle */
+        padding: var(--space-3) var(--space-2) var(--space-8);
     }
 
     .tile-content {
         padding: var(--space-4);
     }
+}
+/* ─── Full CV page (cv.html) ─── */
+.cv-layout {
+    max-width: 52rem;
+    margin: 0 auto;
+}
+
+.cv-breadcrumb {
+    margin-bottom: var(--space-4);
+    font-size: 0.85rem;
+}
+
+.cv-breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.cv-breadcrumb a:hover {
+    color: var(--accent-blue);
+}
+
+.cv-header {
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.cv-facts {
+    margin: var(--space-4) 0 var(--space-4);
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.cv-facts strong {
+    color: var(--text-primary);
+}
+
+.cv-facts a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.cv-actions {
+    margin-top: var(--space-2);
+}
+
+.cv-text {
+    color: var(--text-secondary);
+    font-size: 0.925rem;
+    line-height: 1.65;
+}
+
+.cv-layout section {
+    margin-top: var(--space-6);
+}
+
+.cv-job {
+    margin-bottom: var(--space-5);
+}
+
+.cv-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-5);
+}
+
+.cv-job-header h3 {
+    margin-bottom: 0;
+}
+
+.cv-job-period {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+}
+
+.cv-job-company {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+}
+
+.cv-bullets {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.cv-bullets li {
+    margin-bottom: var(--space-1);
+}
+
+.cv-projects,
+.cv-edu-list,
+.cv-languages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.cv-project {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.cv-project strong {
+    color: var(--text-primary);
+}
+
+.cv-project a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.cv-skills {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.cv-skill-group h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    font-size: 0.7rem;
+    margin-bottom: var(--space-1);
+}
+
+.cv-skill-group p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.cv-edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cv-edu-degree {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.cv-edu-meta {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.cv-languages {
+    gap: var(--space-2);
+}
+
+.cv-layout h2 {
+    margin-bottom: var(--space-3);
+}
+
+/* Availability facts under the About intro */
+.about-facts {
+    margin-top: var(--space-4);
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.about-facts strong {
+    color: var(--text-primary);
+}
+
+/* The project title is a real link so crawlers can reach the case study */
+.project-card h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-card h3 a:hover {
+    color: var(--accent-blue);
 }

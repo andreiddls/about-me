@@ -12,13 +12,18 @@
     "links": {
       "linkedin": "https://linkedin.com/in/tolstykhaa",
       "email": "mailto:tolstykhandrew@gmail.com",
-      "cvPdf": "Andrei_Tolstykh_CV.pdf"
+      "cvPdf": "Andrei_Tolstykh_CV.pdf",
+      "cvPage": "cv.html"
     },
     "paragraphs": [
       "I'm a Product and UI/UX Designer with {yearsExp}+ years of experience designing complex B2B products across Big Tech and startup environments. Currently, I work at an AI startup, where I design a platform for trustworthy and responsible AI. Previously, I worked at one of Eastern Europe's largest FinTech companies, designing a large-scale financial platform and contributing to SAP-based enterprise solutions.",
       "I specialize in simplifying complex workflows and creating scalable product experiences. I collaborate closely with engineers and product teams and have built two large-scale design systems in Storybook.",
       "Using AI-powered CLI tools such as Claude Code, Codex, and Grok, I develop and maintain these systems and turn their components into functional, high-fidelity prototypes."
-    ]
+    ],
+    "availability": {
+      "workAuthorization": "EU work permit, Germany-based — no visa sponsorship required",
+      "basedIn": "Saarbrücken, Germany · available for roles across the EU"
+    }
   },
   "stats": [
     {
@@ -184,9 +189,8 @@
   "education": [
     {
       "degree": "Bachelor's in Computer Science in Economics",
-      "school": "University of Humanities",
-      "period": "2004 - 2009",
-      "note": "Recognized by Anabin"
+      "school": "Ural Federal University",
+      "period": "2004 - 2009"
     }
   ],
   "certifications": [

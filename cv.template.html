@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Theme is system-driven by default; only an explicit user choice is stored.
+        // Applied here, before first paint, so a stored choice never flashes.
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'theme-dark' || stored === 'theme-light') {
+                    document.documentElement.classList.add(stored);
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <title>CV — Andrei Tolstykh | Staff Product Designer &amp; Design Technologist</title>
+    <meta name="description"
+        content="Full CV of Andrei Tolstykh — Staff Product Designer &amp; Design Technologist in Saarbrücken, Germany. Work history at QuantPi and Sberbank, skills, education, languages and EU work authorization.">
+    <link rel="canonical" href="https://andreiddls.github.io/about-me/cv.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="CV — Andrei Tolstykh | Staff Product Designer &amp; Design Technologist">
+    <meta property="og:description"
+        content="Full CV: work history at QuantPi and Sberbank, design systems and AI governance work, skills, education and EU work authorization.">
+    <meta property="og:url" content="https://andreiddls.github.io/about-me/cv.html">
+    <meta property="og:image" content="https://andreiddls.github.io/about-me/avatar-2026.png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CV — Andrei Tolstykh | Staff Product Designer &amp; Design Technologist">
+    <meta name="twitter:description"
+        content="Full CV: work history at QuantPi and Sberbank, design systems and AI governance work, skills, education and EU work authorization.">
+    <meta name="twitter:image" content="https://andreiddls.github.io/about-me/avatar-2026.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate" type="text/plain" href="llms.txt" title="LLMs.txt for AI Agents">
+    <!-- PRERENDER_CV_JSONLD -->
+    <!-- /PRERENDER_CV_JSONLD -->
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <main class="cv-layout">
+            <!-- PRERENDER_CV -->
+            <!-- /PRERENDER_CV -->
+        </main>
+    </div>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+    </button>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

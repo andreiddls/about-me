@@ -9,7 +9,8 @@
     "predev": "node scripts/prerender.js",
     "prebuild": "node scripts/prerender.js",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "cv:pdf": "node scripts/generate-cv-pdf.js"
   },
   "keywords": [],
   "author": "",

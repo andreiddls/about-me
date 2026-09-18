@@ -87,6 +87,14 @@ function renderAbout() {
     })
     .join('\n');
 
+  const availability = about.availability;
+  const availabilityHtml = availability
+    ? `                            <ul class="about-facts" aria-label="Availability">
+                                <li><strong>Work authorization:</strong> ${escapeHtml(availability.workAuthorization)}</li>
+                                <li><strong>Based in:</strong> ${escapeHtml(availability.basedIn)}</li>
+                            </ul>`
+    : '';
+
   return `                <article class="bento-tile tile-about" data-tile="about">
                     <div class="tile-content about-body">
                         <header class="about-header">
@@ -113,6 +121,12 @@ function renderAbout() {
                                         </svg>
                                         <span>Email</span>
                                     </a>
+                                    <a href="${escapeHtml(about.links.cvPage || 'cv.html')}" class="link-chip">
+                                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                        </svg>
+                                        <span>Full CV</span>
+                                    </a>
                                     <a href="${escapeHtml(about.links.cvPdf)}" target="_blank" rel="noopener" class="link-chip link-cv">
                                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
@@ -127,6 +141,7 @@ function renderAbout() {
                             <div class="about-paragraphs">
 ${paragraphHtml}
                             </div>
+${availabilityHtml}
                         </section>
                     </div>
                 </article>`;
@@ -190,7 +205,7 @@ ${achievementsHtml}${tagsHtml}
                                 <span class="${statusClass}">${lockIcon}${escapeHtml(project.status)}</span>
                                 <time class="project-period" datetime="${escapeHtml(periodToDatetime(project.period))}">${escapeHtml(project.period)}</time>
                             </header>
-                            <h3>${escapeHtml(project.name)}</h3>
+                            <h3>${hasLink ? `<a href="${escapeHtml(project.link)}">${escapeHtml(project.name)}</a>` : escapeHtml(project.name)}</h3>
                             <p>${escapeHtml(project.description)}</p>${contentHtml}
                         </article>`;
   }).join('\n');
@@ -503,3 +518,248 @@ scOutput = replaceBlock(scOutput, 'KEY_ACHIEVEMENTS', renderScKeyAchievements())
 
 fs.writeFileSync(path.join(root, 'sc_platform.html'), scOutput);
 console.log('Prerendered sc_platform.html from sc-platform-data.json');
+// ── Full CV page + llms.txt (both generated from data/cv-full.json) ───
+// One source of truth, so the visible page, the agent-facing text file and
+// the structured data can never drift apart on facts like headcount or dates.
+
+const cv = JSON.parse(fs.readFileSync(path.join(root, 'data/cv-full.json'), 'utf8'));
+const cvTemplate = fs.readFileSync(path.join(root, 'cv.template.html'), 'utf8');
+const SITE = 'https://andreiddls.github.io/about-me/';
+
+function renderCvJsonLd() {
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    dateModified: new Date().toISOString().slice(0, 10),
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Portfolio', item: SITE },
+        { '@type': 'ListItem', position: 2, name: 'CV', item: `${SITE}cv.html` },
+      ],
+    },
+    mainEntity: {
+      '@type': 'Person',
+      name: cv.meta.name,
+      jobTitle: cv.meta.title,
+      description: cv.summary,
+      url: `${SITE}cv.html`,
+      image: `${SITE}avatar-2026.png`,
+      email: `mailto:${cv.meta.email}`,
+      telephone: cv.meta.phone.replace(/\s/g, ''),
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Saarbrücken',
+        addressRegion: 'Saarland',
+        addressCountry: 'DE',
+      },
+      sameAs: [cv.meta.linkedin, cv.meta.github],
+      knowsLanguage: cv.languages.map((l) => ({
+        '@type': 'Language',
+        name: l.name,
+        alternateName: l.level,
+      })),
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: cv.meta.title,
+        occupationLocation: { '@type': 'Country', name: 'Germany' },
+        skills: cv.skills.map((s) => s.items).join(', '),
+      },
+      hasCredential: cv.certifications.map((c) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: c.name,
+        dateCreated: c.year,
+      })),
+      alumniOf: cv.education.map((e) => ({
+        '@type': 'EducationalOrganization',
+        name: e.school,
+      })),
+      worksFor: {
+        '@type': 'Organization',
+        name: cv.experience[0].company,
+        location: cv.experience[0].location,
+      },
+    },
+  };
+
+  return `    <script type="application/ld+json">
+${JSON.stringify(ld, null, 2).split('\n').map((l) => `    ${l}`).join('\n')}
+    </script>`;
+}
+
+function renderCvBody() {
+  const m = cv.meta;
+
+  const experienceHtml = cv.experience.map((job) => `                        <article class="cv-job">
+                            <header class="cv-job-header">
+                                <h3>${escapeHtml(job.role)}</h3>
+                                <time class="cv-job-period" datetime="${escapeHtml(periodToDatetime(job.period))}">${escapeHtml(job.period)}</time>
+                            </header>
+                            <p class="cv-job-company">${escapeHtml(job.company)} · ${escapeHtml(job.location)}</p>
+                            <ul class="cv-bullets">
+${job.bullets.map((b) => `                                <li>${escapeHtml(b)}</li>`).join('\n')}
+                            </ul>
+                        </article>`).join('\n');
+
+  const projectsHtml = cv.projects.map((p) => `                            <li class="cv-project">
+                                <strong>${p.url ? `<a href="${escapeHtml(p.url)}">${escapeHtml(p.name)}</a>` : escapeHtml(p.name)}</strong>
+                                <span>${escapeHtml(p.summary)}</span>
+                            </li>`).join('\n');
+
+  const skillsHtml = cv.skills.map((s) => `                            <div class="cv-skill-group">
+                                <h3>${escapeHtml(s.group)}</h3>
+                                <p>${escapeHtml(s.items)}</p>
+                            </div>`).join('\n');
+
+  const educationHtml = cv.education.map((e) => `                            <li class="cv-edu-item">
+                                <span class="cv-edu-degree">${escapeHtml(e.degree)}</span>
+                                <span class="cv-edu-meta">${escapeHtml(e.school)} · ${escapeHtml(e.year)}</span>
+                            </li>`).join('\n');
+
+  const certsHtml = cv.certifications.map((c) => `                            <li class="cv-edu-item">
+                                <span class="cv-edu-degree">${escapeHtml(c.name)}</span>
+                                <span class="cv-edu-meta">${escapeHtml(c.year)}</span>
+                            </li>`).join('\n');
+
+  const languagesHtml = cv.languages.map((l) => `                            <li class="lang-item">
+                                <span class="lang-name">${escapeHtml(l.name)}</span>
+                                <span class="lang-level">${escapeHtml(l.level)}</span>
+                            </li>`).join('\n');
+
+  return `            <article class="bento-tile">
+                <div class="tile-content">
+                    <nav class="cv-breadcrumb" aria-label="Breadcrumb">
+                        <a href="index.html">← Portfolio</a>
+                    </nav>
+                    <header class="cv-header">
+                        <h1>${escapeHtml(m.name)}</h1>
+                        <p class="subtitle">${escapeHtml(m.title)} · ${escapeHtml(m.location)}</p>
+                        <ul class="cv-facts">
+                            <li><strong>Work authorization:</strong> ${escapeHtml(cv.availability.workAuthorization)}</li>
+                            <li><strong>Based in:</strong> ${escapeHtml(cv.availability.basedIn)}</li>
+                            <li><strong>Contact:</strong> <a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a> · <a href="${escapeHtml(m.linkedin)}" rel="noopener">LinkedIn</a> · <a href="${escapeHtml(m.github)}" rel="noopener">GitHub</a></li>
+                        </ul>
+                        <p class="cv-actions"><a class="link-chip link-cv" href="${escapeHtml(m.cvPdf)}" target="_blank" rel="noopener">Download CV as PDF</a></p>
+                    </header>
+
+                    <section aria-labelledby="cv-summary-title">
+                        <h2 id="cv-summary-title">Profile</h2>
+                        <p class="cv-text">${escapeHtml(cv.summary)}</p>
+                    </section>
+
+                    <section aria-labelledby="cv-experience-title">
+                        <h2 id="cv-experience-title">Experience</h2>
+${experienceHtml}
+                    </section>
+
+                    <section aria-labelledby="cv-projects-title">
+                        <h2 id="cv-projects-title">Selected Projects</h2>
+                        <ul class="cv-projects">
+${projectsHtml}
+                        </ul>
+                    </section>
+
+                    <section aria-labelledby="cv-skills-title">
+                        <h2 id="cv-skills-title">Skills &amp; Toolkit</h2>
+                        <div class="cv-skills">
+${skillsHtml}
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="cv-education-title">
+                        <h2 id="cv-education-title">Education</h2>
+                        <ul class="cv-edu-list">
+${educationHtml}
+                        </ul>
+                        <h2 id="cv-certifications-title">Certifications</h2>
+                        <ul class="cv-edu-list">
+${certsHtml}
+                        </ul>
+                    </section>
+
+                    <section aria-labelledby="cv-languages-title">
+                        <h2 id="cv-languages-title">Languages</h2>
+                        <ul class="cv-languages">
+${languagesHtml}
+                        </ul>
+                    </section>
+                </div>
+            </article>`;
+}
+
+let cvOutput = cvTemplate;
+cvOutput = replaceBlock(cvOutput, 'CV_JSONLD', renderCvJsonLd());
+cvOutput = replaceBlock(cvOutput, 'CV', renderCvBody());
+fs.writeFileSync(path.join(root, 'cv.html'), cvOutput);
+console.log('Prerendered cv.html from cv-full.json');
+
+function renderLlmsTxt() {
+  const m = cv.meta;
+  const lines = [];
+  lines.push(`# ${m.name} — ${m.title}`);
+  lines.push('');
+  lines.push(`> Portfolio: ${m.site}`);
+  lines.push(`> Full CV (HTML): ${m.site}cv.html`);
+  lines.push(`> Full CV (PDF): ${m.site}${m.cvPdf}`);
+  lines.push(`> Case study — CostPlatform: ${m.site}sc_platform.html`);
+  lines.push(`> Location: ${m.location}`);
+  lines.push(`> Work authorization: ${cv.availability.workAuthorization}`);
+  lines.push(`> Email: ${m.email}`);
+  lines.push(`> Phone: ${m.phone}`);
+  lines.push(`> LinkedIn: ${m.linkedin}`);
+  lines.push(`> GitHub: ${m.github}`);
+  lines.push('');
+  lines.push('## Professional Summary');
+  lines.push(cv.summary);
+  lines.push('');
+  lines.push('## Core Competencies & Skills');
+  cv.skills.forEach((s) => lines.push(`- **${s.group}:** ${s.items}.`));
+  lines.push('');
+  lines.push('## Work Experience');
+  cv.experience.forEach((job) => {
+    lines.push('');
+    lines.push(`### ${job.role} — ${job.company}`);
+    lines.push(`*Location: ${job.location} | Period: ${job.period}*`);
+    job.bullets.forEach((b) => lines.push(`- ${b}`));
+  });
+  lines.push('');
+  lines.push('## Key Projects & Impact');
+  cv.projects.forEach((p, i) => {
+    lines.push(`${i + 1}. **${p.name}:** ${p.summary}${p.url ? ` Case study: ${p.url}` : ''}`);
+  });
+  lines.push('');
+  lines.push('## Education');
+  cv.education.forEach((e) => lines.push(`- **${e.degree}** — ${e.school} (${e.year})`));
+  lines.push('');
+  lines.push('## Certifications');
+  cv.certifications.forEach((c) => lines.push(`- **${c.name}** (${c.year})`));
+  lines.push('');
+  lines.push('## Languages');
+  cv.languages.forEach((l) => lines.push(`- ${l.name}: ${l.level}`));
+  lines.push('');
+  return lines.join('\n');
+}
+
+fs.writeFileSync(path.join(root, 'public/llms.txt'), renderLlmsTxt());
+console.log('Generated public/llms.txt from cv-full.json');
+
+const SITEMAP_URLS = [
+  { loc: SITE, priority: '1.0' },
+  { loc: `${SITE}cv.html`, priority: '0.9' },
+  { loc: `${SITE}sc_platform.html`, priority: '0.8' },
+];
+
+fs.writeFileSync(
+  path.join(root, 'public/sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${SITEMAP_URLS.map((u) => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`
+);
+console.log('Generated public/sitemap.xml');

@@ -48,6 +48,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
+        cv: 'cv.html',
         sc_platform: 'sc_platform.html',
       },
     },
